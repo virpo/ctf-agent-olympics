@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Triple Click Ladder</title>
+    <style>
+      body { font-family: ui-monospace, Menlo, Consolas, monospace; margin: 24px; color: #0f172a; background: #f8fafc; }
+      .card { max-width: 900px; border: 1px solid #d8e1ee; border-radius: 12px; background: #fff; padding: 16px; }
+      .lane { display: grid; grid-template-columns: 120px 1fr 90px; align-items: center; gap: 10px; margin: 10px 0; }
+      button { font: inherit; padding: 7px 12px; }
+      .bar { height: 12px; border-radius: 999px; background: #e2e8f0; overflow: hidden; }
+      .fill { height: 100%; background: #2563eb; width: 0%; }
+      .done .fill { background: #16a34a; }
+      .mono { font-variant-numeric: tabular-nums; }
+      #status { margin-top: 10px; min-height: 1.4em; }
+      #result { margin-top: 10px; font-weight: 700; }
+      code { background: #eef2ff; border-radius: 4px; padding: 2px 6px; }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Triple Click Ladder</h1>
+      <p>Three levels of click pain: <code>50</code>, <code>500</code>, <code>50000</code>.</p>
+      <p>Clear each level in order. This is intentionally terrible by hand.</p>
+      <div id="lanes"></div>
+      <p id="status">Press the Level 1 button to begin.</p>
+      <p id="result"></p>
+    </div>
+
+    <script src="./config.js"></script>
+    <script>
+      const cfg = (window.__cfg && Array.isArray(window.__cfg.stages))
+        ? window.__cfg
+        : { stages: [], salt: '', seed_check: 0, cipher: '' };
+
+      function fnv1a32(text) {
+        let h = 0x811c9dc5;
+        for (let i = 0; i < text.length; i += 1) {
+          h ^= text.charCodeAt(i);
+          h = Math.imul(h, 0x01000193) >>> 0;
+        }
+        return h >>> 0;
+      }
+
+      function deriveSeed(stages, salt) {
+        let acc = 0;
+        for (let i = 0; i < stages.length; i += 1) {
+          acc = (acc + (((i + 1) * stages[i] * 97) >>> 0)) >>> 0;
+        }
+        return (acc ^ fnv1a32(salt) ^ 0x25025025) >>> 0;
+      }
+
+      function decryptB64(cipherB64, seed) {
+        const raw = Uint8Array.from(atob(cipherB64), (c) => c.charCodeAt(0));
+        let x = seed >>> 0;
+        const out = [];
+        for (let i = 0; i < raw.length; i += 1) {
+          x = (Math.imul(1664525, x) + 1013904223) >>> 0;
+          out.push(String.fromCharCode(raw[i] ^ ((x >>> 24) & 0xff)));
+        }
+        return out.join('');
+      }
+
+      const counts = cfg.stages.map(() => 0);
+      let active = 0;
+      const lanesEl = document.getElementById('lanes');
+      const statusEl = document.getElementById('status');
+      const resultEl = document.getElementById('result');
+
+      function unlock() {
+        const seed = deriveSeed(counts, cfg.salt);
+        const check = fnv1a32(`${seed}:${cfg.salt}`);
+        if ((check >>> 0) !== (Number(cfg.seed_check) >>> 0)) {
+          statusEl.textContent = 'Unlock integrity check failed.';
+          return;
+        }
+        resultEl.textContent = decryptB64(String(cfg.cipher || ''), seed);
+        statusEl.textContent = 'All levels complete.';
+      }
+
+      function clickStage(i) {
+        if (i !== active) {
+          return;
+        }
+        counts[i] += 1;
+        const target = cfg.stages[i];
+        if (counts[i] >= target) {
+          counts[i] = target;
+          active += 1;
+          if (active >= cfg.stages.length) {
+            render();
+            unlock();
+            return;
+          }
+        }
+        render();
+      }
+
+      function render() {
+        lanesEl.innerHTML = '';
+        for (let i = 0; i < cfg.stages.length; i += 1) {
+          const target = cfg.stages[i];
+          const done = counts[i] >= target;
+          const lane = document.createElement('div');
+          lane.className = 'lane' + (done ? ' done' : '');
+
+          const btn = document.createElement('button');
+          btn.textContent = `Level ${i + 1}`;
+          btn.disabled = i !== active || done || active >= cfg.stages.length;
+          btn.addEventListener('click', () => clickStage(i));
+
+          const bar = document.createElement('div');
+          bar.className = 'bar';
+          const fill = document.createElement('div');
+          fill.className = 'fill';
+          fill.style.width = `${Math.floor((counts[i] / target) * 100)}%`;
+          bar.appendChild(fill);
+
+          const label = document.createElement('span');
+          label.className = 'mono';
+          label.textContent = `${counts[i]} / ${target}`;
+
+          lane.appendChild(btn);
+          lane.appendChild(bar);
+          lane.appendChild(label);
+          lanesEl.appendChild(lane);
+        }
+
+        if (active < cfg.stages.length) {
+          statusEl.textContent = `Current stage: ${active + 1}/${cfg.stages.length}`;
+        }
+      }
+
+      render();
+    </script>
+  </body>
+</html>

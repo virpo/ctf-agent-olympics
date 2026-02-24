@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dialog Marathon</title>
+    <style>
+      body { font-family: ui-monospace, Menlo, Consolas, monospace; margin: 24px; background: #f6f4ee; color: #1f2937; }
+      main { max-width: 760px; }
+      button { font: inherit; padding: 8px 14px; cursor: pointer; }
+      #status { margin-top: 12px; min-height: 1.4em; }
+      .panel { background: #fff; border: 1px solid #d1c9b8; padding: 12px; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Dialog Marathon</h1>
+      <p class="panel">500 dialogs. Mixed prompts. One mistake and you restart.</p>
+      <button id="start">Start Marathon</button>
+      <p id="status"></p>
+    </main>
+
+    <script src="./dialog_data.js"></script>
+    <script>
+      function shiftPrintable(s, k) {
+        let out = '';
+        for (const ch of s) {
+          const o = ch.charCodeAt(0);
+          if (o >= 32 && o <= 126) {
+            out += String.fromCharCode(32 + ((o - 32 + k) % 95));
+          } else {
+            out += ch;
+          }
+        }
+        return out;
+      }
+
+      function decodeEmit(enc) {
+        const shifted = atob(enc);
+        return shiftPrintable(shifted, -9);
+      }
+
+      const cfg = (window.__dialogCfg && Array.isArray(window.__dialogCfg.steps))
+        ? window.__dialogCfg
+        : { steps: [] };
+      const status = document.getElementById('status');
+
+      document.getElementById('start').addEventListener('click', () => {
+        const out = [];
+        for (const step of cfg.steps) {
+          let ok = false;
+          if (step.kind === 'alert') {
+            alert(step.text);
+            ok = true;
+          } else if (step.kind === 'confirm') {
+            const res = confirm(step.text);
+            const expected = step.expected === 'OK';
+            ok = res === expected;
+          } else if (step.kind === 'prompt') {
+            const res = prompt(step.text, '');
+            ok = (res ?? '') === step.expected;
+          }
+
+          if (!ok) {
+            status.textContent = `Stopped at step ${step.n}. Sequence reset.`;
+            return;
+          }
+
+          if (step.emit) out.push(decodeEmit(step.emit));
+        }
+
+        status.textContent = `Completed. ${out.join('')}`;
+      });
+    </script>
+  </body>
+</html>

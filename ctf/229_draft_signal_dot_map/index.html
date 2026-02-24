@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Signal Dot Map</title>
+    <style>
+      body { font-family: ui-monospace, Menlo, Consolas, monospace; margin: 24px; background: #f7fbff; color: #0f172a; }
+      .card { background: #fff; border: 1px solid #d7e3f2; border-radius: 10px; padding: 14px; max-width: 1260px; }
+      .map-wrap { max-width: 100%; overflow: auto; border: 1px solid #c8d7e8; border-radius: 8px; background: radial-gradient(circle at 20% 20%, #ffffff, #edf5ff 65%); }
+      .map { position: relative; width: 1220px; height: 620px; }
+      .dot { position: absolute; width: 10px; height: 10px; border-radius: 999px; border: 1px solid #64748b; background: #cbd5e1; padding: 0; cursor: pointer; }
+      .dot.done-blue { background: #60a5fa; border-color: #1d4ed8; }
+      .dot.done-gold { background: #facc15; border-color: #a16207; }
+      #panel { margin-top: 10px; min-height: 1.2em; }
+      #raw { margin-top: 8px; font-weight: 700; word-break: break-all; }
+      #log { margin-top: 8px; min-height: 80px; max-height: 220px; overflow: auto; border: 1px solid #e0e7f0; border-radius: 8px; padding: 8px; background: #f8fbff; font-size: 12px; }
+      #final { margin-top: 10px; font-weight: 700; color: #065f46; }
+      code { background: #eaf1ff; border-radius: 4px; padding: 2px 6px; }
+      .hint { opacity: .84; }
+      .legend { margin-top: 8px; font-size: 12px; }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Signal Dot Map</h1>
+      <p>Click dots one by one. Every click emits one character into a growing string.</p>
+      <p>Some clicked dots are <strong>gold</strong> (signal), some are <strong>blue</strong> (noise). Keep only letters from gold clicks.</p>
+      <p class="hint">You only get the final reveal after all gold signal dots were found.</p>
+      <div class="legend">Result format: <code>FLAG{...}</code></div>
+
+      <div class="map-wrap"><div id="map" class="map"></div></div>
+      <div id="panel">No clicks yet.</div>
+      <div id="raw">raw stream:</div>
+      <div id="log"></div>
+      <div id="final"></div>
+    </div>
+
+    <script src="./dots_data.js"></script>
+    <script>
+      const cfg = (window.__dotCfg && Array.isArray(window.__dotCfg.dots)) ? window.__dotCfg : { dots: [] };
+      const map = document.getElementById('map');
+      const panel = document.getElementById('panel');
+      const raw = document.getElementById('raw');
+      const log = document.getElementById('log');
+      const finalBox = document.getElementById('final');
+
+      const clicked = new Set();
+      const foundGoldRanks = new Set();
+      const signalByRank = new Map();
+      let rawStream = '';
+
+      function decodeGlyph(d) {
+        const mask = (d.dot_id * 17 + 91) & 127;
+        return String.fromCharCode(d.code ^ mask);
+      }
+
+      function signalCount() {
+        return cfg.dots.filter((d) => d.ring === 'gold' && Number.isInteger(d.rank)).length;
+      }
+
+      function appendLog(line) {
+        const div = document.createElement('div');
+        div.textContent = line;
+        log.appendChild(div);
+        log.scrollTop = log.scrollHeight;
+      }
+
+      cfg.dots.forEach((d) => {
+        const b = document.createElement('button');
+        b.className = 'dot';
+        b.style.left = `${d.x - 5}px`;
+        b.style.top = `${d.y - 5}px`;
+        b.title = `dot ${d.dot_id}`;
+
+        b.addEventListener('click', () => {
+          if (clicked.has(d.dot_id)) return;
+          clicked.add(d.dot_id);
+
+          const glyph = decodeGlyph(d);
+          rawStream += glyph;
+          raw.textContent = 'raw stream: ' + rawStream;
+
+          const kind = d.ring === 'gold' ? 'gold' : 'blue';
+          b.classList.add(kind === 'gold' ? 'done-gold' : 'done-blue');
+          panel.textContent = `dot=${d.dot_id} -> ${kind} -> '${glyph}'`;
+          appendLog(`dot ${d.dot_id} ${kind} emitted '${glyph}'`);
+
+          if (d.ring === 'gold' && Number.isInteger(d.rank)) {
+            foundGoldRanks.add(d.rank);
+            signalByRank.set(d.rank, glyph);
+          }
+
+          if (foundGoldRanks.size === signalCount()) {
+            const ordered = [...signalByRank.entries()].sort((a, b) => a[0] - b[0]).map((x) => x[1]).join('');
+            finalBox.textContent = 'All gold signals found. Final answer: ' + ordered;
+          } else {
+            finalBox.textContent = `Gold found: ${foundGoldRanks.size}/${signalCount()}`;
+          }
+        });
+
+        map.appendChild(b);
+      });
+
+      finalBox.textContent = `Gold found: 0/${signalCount()}`;
+    </script>
+  </body>
+</html>

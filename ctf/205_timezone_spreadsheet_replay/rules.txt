@@ -1,0 +1,7 @@
+1) keep rows where approval_code=AB
+2) keep rows where batch_no % 7 == 0
+3) keep rows where operator starts with a vowel
+4) convert local_time+timezone to UTC
+5) sort by UTC ascending
+6) concatenate chunk_text into one sentence
+7) find the FLAG{...} token inside that sentence

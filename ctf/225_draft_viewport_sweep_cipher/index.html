@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Viewport Sweep Cipher</title>
+    <style>
+      body { font-family: ui-monospace, Menlo, Consolas, monospace; margin: 24px; background: #f8fbff; color: #0f172a; }
+      .card { background: #fff; border: 1px solid #d8e6f5; border-radius: 10px; padding: 14px; max-width: 920px; }
+      button, input[type="range"] { font: inherit; }
+      #panel { margin-top: 10px; padding: 10px; border: 1px solid #d5deea; border-radius: 8px; background: #f4f8ff; }
+      #collected { margin-top: 8px; min-height: 1.2em; }
+      code { background: #eaf1ff; border-radius: 4px; padding: 2px 6px; }
+      .hint { opacity: .84; }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Viewport Sweep Cipher</h1>
+      <p>This kiosk changes state for each viewport width. You need the rare stable states.</p>
+      <p>Rule: sweep all widths from <code>480</code> to <code>2480</code>. Keep glyph only when <code>phase=4</code> and <code>drift=2</code>.</p>
+      <p class="hint">Doing that manually is exactly as bad as it sounds.</p>
+      <div>
+        <input id="slider" type="range" min="480" max="2480" step="1" value="480" style="width: 100%;" />
+      </div>
+      <div id="panel"></div>
+      <div style="margin-top:10px;">
+        <button id="capture">Capture glyph</button>
+        <button id="next">Next width</button>
+        <button id="reset">Reset capture</button>
+      </div>
+      <div id="collected"></div>
+      <p class="hint">Sanity preview: first few true widths exist somewhere near [756, 844, 868, 970, 1727, 1896].</p>
+    </div>
+
+    <script src="./sweep_config.js"></script>
+    <script>
+      const cfg = window.__sweepCfg || { start: 480, end: 2480, signal: {} };
+      const slider = document.getElementById('slider');
+      const panel = document.getElementById('panel');
+      const collected = document.getElementById('collected');
+      const out = [];
+
+      function noiseGlyph(w) {
+        const chars = 'abcdefhjkmnpqrstuvwxyz23456789+-*/';
+        return chars[(w * 31 + 7) % chars.length];
+      }
+
+      function inspectWidth(w) {
+        let phase = (w * 13 + 7) % 9;
+        let drift = (w * 19 + 3) % 10;
+        let glyph = noiseGlyph(w);
+
+        if (Object.prototype.hasOwnProperty.call(cfg.signal, String(w))) {
+          phase = 4;
+          drift = 2;
+          glyph = String.fromCharCode(cfg.signal[String(w)] ^ ((w * 11 + 73) & 127));
+        } else if (phase === 4 && drift === 2) {
+          drift = 1;
+        }
+
+        return { w, phase, drift, glyph };
+      }
+
+      function render() {
+        const meta = inspectWidth(Number(slider.value));
+        panel.textContent = `width=${meta.w} phase=${meta.phase} drift=${meta.drift} glyph=${meta.glyph}`;
+      }
+
+      slider.addEventListener('input', render);
+      document.getElementById('next').addEventListener('click', () => {
+        const cur = Number(slider.value);
+        if (cur < Number(slider.max)) slider.value = String(cur + 1);
+        render();
+      });
+
+      document.getElementById('capture').addEventListener('click', () => {
+        const meta = inspectWidth(Number(slider.value));
+        if (meta.phase === 4 && meta.drift === 2) out.push(meta.glyph);
+        collected.textContent = `captured: ${out.join('')}`;
+      });
+
+      document.getElementById('reset').addEventListener('click', () => {
+        out.length = 0;
+        collected.textContent = 'captured:';
+      });
+
+      render();
+      collected.textContent = 'captured:';
+    </script>
+  </body>
+</html>

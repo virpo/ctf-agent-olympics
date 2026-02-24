@@ -1,0 +1,18 @@
+Briefing:
+You are processing one sheet exported by multiple regional teams.
+
+How to parse each row:
+- Read the locale column first.
+- en_US: date is MM/DD/YYYY and amount uses decimal point.
+- de_DE: date is DD.MM.YYYY and amount uses decimal comma.
+- fr_FR: date is DD/MM/YYYY and amount uses decimal comma.
+- sk_SK: date is DD.MM.YYYY and amount uses decimal comma.
+
+Selection logic:
+1) Keep only rows where tag equals KEEP.
+2) Keep only rows where parsed amount is strictly greater than 120.
+3) Keep only rows where parsed date falls on Tuesday.
+
+Final output:
+- Sort kept rows by parsed date ascending.
+- Concatenate chunk_text in that sorted order.

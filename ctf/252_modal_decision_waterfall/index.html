@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Modal Decision Waterfall</title>
+    <style>
+      body { font-family: ui-monospace, Menlo, Consolas, monospace; margin: 24px; background: #f8fafc; color: #0f172a; }
+      .card { max-width: 860px; border: 1px solid #d8e1ee; border-radius: 12px; background: #fff; padding: 16px; }
+      .modal { margin-top: 14px; border: 1px solid #d2dbea; border-radius: 10px; padding: 16px; background: #f9fbff; }
+      .actions { margin-top: 12px; display: flex; gap: 10px; }
+      button { font: inherit; padding: 8px 14px; }
+      #status { margin-top: 10px; min-height: 1.4em; }
+      #result { margin-top: 10px; font-weight: 700; }
+      .mono { font-variant-numeric: tabular-nums; }
+      code { background: #eef2ff; border-radius: 4px; padding: 2px 6px; }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Modal Decision Waterfall</h1>
+      <p>Choose <strong>Left</strong> or <strong>Right</strong> for every modal step.</p>
+      <p>One wrong answer resets all progress. There are <code id="steps"></code> steps.</p>
+      <button id="start">Start Run</button>
+
+      <div class="modal">
+        <div class="mono" id="progress">Step 0/0</div>
+        <p>Decision prompt: approve left path or right path.</p>
+        <div class="actions">
+          <button id="left" disabled>Left</button>
+          <button id="right" disabled>Right</button>
+        </div>
+      </div>
+
+      <p id="status">Press Start Run.</p>
+      <p id="result"></p>
+    </div>
+
+    <script src="./config.js"></script>
+    <script>
+      const cfg = window.__cfg || { steps: 0, init_acc: 0, salt: '', seed_check: 0, cipher: '' };
+
+      function fnv1a32(text) {
+        let h = 0x811c9dc5;
+        for (let i = 0; i < text.length; i += 1) {
+          h ^= text.charCodeAt(i);
+          h = Math.imul(h, 0x01000193) >>> 0;
+        }
+        return h >>> 0;
+      }
+
+      function expectedBit(step, acc, salt) {
+        return fnv1a32(`${salt}:${step}:${acc}`) & 1;
+      }
+
+      function nextAcc(acc, step, choice) {
+        const mix = Math.imul((step + 1) >>> 0, 2654435761) >>> 0;
+        return (Math.imul((acc ^ mix) >>> 0, 1664525) + 1013904223 + choice) >>> 0;
+      }
+
+      function deriveSeed(acc, steps, salt) {
+        return (acc ^ fnv1a32(`${salt}:done:${steps}`) ^ 0x25225225) >>> 0;
+      }
+
+      function decryptB64(cipherB64, seed) {
+        const raw = Uint8Array.from(atob(cipherB64), (c) => c.charCodeAt(0));
+        let x = seed >>> 0;
+        const out = [];
+        for (let i = 0; i < raw.length; i += 1) {
+          x = (Math.imul(1664525, x) + 1013904223) >>> 0;
+          out.push(String.fromCharCode(raw[i] ^ ((x >>> 24) & 0xff)));
+        }
+        return out.join('');
+      }
+
+      const startBtn = document.getElementById('start');
+      const leftBtn = document.getElementById('left');
+      const rightBtn = document.getElementById('right');
+      const stepsEl = document.getElementById('steps');
+      const progressEl = document.getElementById('progress');
+      const statusEl = document.getElementById('status');
+      const resultEl = document.getElementById('result');
+
+      let step = 0;
+      let acc = Number(cfg.init_acc) >>> 0;
+      let running = false;
+
+      stepsEl.textContent = String(cfg.steps);
+
+      function setButtons(enabled) {
+        leftBtn.disabled = !enabled;
+        rightBtn.disabled = !enabled;
+      }
+
+      function render() {
+        progressEl.textContent = `Step ${step}/${cfg.steps}`;
+      }
+
+      function resetRun(message) {
+        step = 0;
+        acc = Number(cfg.init_acc) >>> 0;
+        running = false;
+        setButtons(false);
+        statusEl.textContent = message;
+        render();
+      }
+
+      function unlock() {
+        const seed = deriveSeed(acc, cfg.steps, cfg.salt);
+        const check = fnv1a32(`${seed}:${cfg.salt}`);
+        if ((check >>> 0) !== (Number(cfg.seed_check) >>> 0)) {
+          statusEl.textContent = 'Unlock integrity check failed.';
+          return;
+        }
+        resultEl.textContent = decryptB64(String(cfg.cipher || ''), seed);
+        statusEl.textContent = 'Run complete.';
+        running = false;
+        setButtons(false);
+      }
+
+      function handleChoice(choice) {
+        if (!running) return;
+        const want = expectedBit(step, acc, cfg.salt);
+        if (choice !== want) {
+          resetRun(`Wrong choice at step ${step + 1}. Reset to 0.`);
+          return;
+        }
+
+        acc = nextAcc(acc, step, choice);
+        step += 1;
+        render();
+
+        if (step >= cfg.steps) {
+          unlock();
+          return;
+        }
+
+        statusEl.textContent = `Correct. Continue (${step}/${cfg.steps}).`;
+      }
+
+      startBtn.addEventListener('click', () => {
+        step = 0;
+        acc = Number(cfg.init_acc) >>> 0;
+        running = true;
+        resultEl.textContent = '';
+        setButtons(true);
+        statusEl.textContent = 'Run started.';
+        render();
+      });
+
+      leftBtn.addEventListener('click', () => handleChoice(0));
+      rightBtn.addEventListener('click', () => handleChoice(1));
+
+      render();
+    </script>
+  </body>
+</html>

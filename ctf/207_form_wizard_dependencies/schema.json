@@ -1,0 +1,40 @@
+{
+  "required": [
+    "team_name",
+    "contact_email",
+    "uses_api",
+    "mode",
+    "alerts"
+  ],
+  "conditional_required": [
+    {
+      "if": {
+        "uses_api": "yes"
+      },
+      "require": [
+        "api_key"
+      ]
+    },
+    {
+      "if": {
+        "mode": "advanced"
+      },
+      "require": [
+        "advanced_code"
+      ]
+    },
+    {
+      "if": {
+        "alerts": "yes"
+      },
+      "require": [
+        "phone"
+      ]
+    }
+  ],
+  "validators": {
+    "contact_email_contains": "@",
+    "api_key_prefix": "ak_",
+    "advanced_code_regex": "^\\d{6}$"
+  }
+}

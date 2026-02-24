@@ -1,0 +1,224 @@
+{
+  "host_user": "U_HOST",
+  "messages": [
+    {
+      "ts": "177000000.000000",
+      "text": "checkpoint value=13",
+      "number": 13,
+      "reactions": [
+        {
+          "name": "eyes",
+          "users": [
+            "U_HOST",
+            "U_A"
+          ]
+        },
+        {
+          "name": "rocket",
+          "users": [
+            "U_B"
+          ]
+        }
+      ]
+    },
+    {
+      "ts": "177000001.000000",
+      "text": "checkpoint value=27",
+      "number": 27,
+      "reactions": []
+    },
+    {
+      "ts": "177000002.000000",
+      "text": "checkpoint value=34",
+      "number": 34,
+      "reactions": [
+        {
+          "name": "eyes",
+          "users": [
+            "U_HOST",
+            "U_A"
+          ]
+        }
+      ]
+    },
+    {
+      "ts": "177000003.000000",
+      "text": "checkpoint value=38",
+      "number": 38,
+      "reactions": []
+    },
+    {
+      "ts": "177000004.000000",
+      "text": "checkpoint value=41",
+      "number": 41,
+      "reactions": [
+        {
+          "name": "rocket",
+          "users": [
+            "U_B"
+          ]
+        }
+      ]
+    },
+    {
+      "ts": "177000005.000000",
+      "text": "checkpoint value=52",
+      "number": 52,
+      "reactions": []
+    },
+    {
+      "ts": "177000006.000000",
+      "text": "checkpoint value=63",
+      "number": 63,
+      "reactions": [
+        {
+          "name": "eyes",
+          "users": [
+            "U_HOST",
+            "U_A"
+          ]
+        }
+      ]
+    },
+    {
+      "ts": "177000007.000000",
+      "text": "checkpoint value=73",
+      "number": 73,
+      "reactions": []
+    },
+    {
+      "ts": "177000008.000000",
+      "text": "checkpoint value=82",
+      "number": 82,
+      "reactions": [
+        {
+          "name": "rocket",
+          "users": [
+            "U_B"
+          ]
+        }
+      ]
+    },
+    {
+      "ts": "177000009.000000",
+      "text": "checkpoint value=93",
+      "number": 93,
+      "reactions": []
+    },
+    {
+      "ts": "177000010.000000",
+      "text": "checkpoint value=103",
+      "number": 103,
+      "reactions": [
+        {
+          "name": "eyes",
+          "users": [
+            "U_HOST",
+            "U_A"
+          ]
+        }
+      ]
+    },
+    {
+      "ts": "177000011.000000",
+      "text": "checkpoint value=123",
+      "number": 123,
+      "reactions": []
+    },
+    {
+      "ts": "177000012.000000",
+      "text": "checkpoint value=132",
+      "number": 132,
+      "reactions": [
+        {
+          "name": "eyes",
+          "users": [
+            "U_HOST",
+            "U_A"
+          ]
+        },
+        {
+          "name": "white_check_mark",
+          "users": [
+            "U_HOST"
+          ]
+        },
+        {
+          "name": "rocket",
+          "users": [
+            "U_B"
+          ]
+        }
+      ]
+    },
+    {
+      "ts": "177000013.000000",
+      "text": "checkpoint value=212",
+      "number": 212,
+      "reactions": []
+    },
+    {
+      "ts": "177000014.000000",
+      "text": "checkpoint value=230",
+      "number": 230,
+      "reactions": [
+        {
+          "name": "eyes",
+          "users": [
+            "U_HOST",
+            "U_A"
+          ]
+        }
+      ]
+    },
+    {
+      "ts": "177000015.000000",
+      "text": "checkpoint value=302",
+      "number": 302,
+      "reactions": [
+        {
+          "name": "white_check_mark",
+          "users": [
+            "U_HOST"
+          ]
+        }
+      ]
+    },
+    {
+      "ts": "177000099.000000",
+      "text": "bonus value=333",
+      "number": 333,
+      "reactions": [
+        {
+          "name": "eyes",
+          "users": [
+            "U_HOST"
+          ]
+        }
+      ]
+    },
+    {
+      "ts": "177000100.000000",
+      "text": "bonus value=222",
+      "number": 222,
+      "reactions": [
+        {
+          "name": "white_check_mark",
+          "users": [
+            "U_HOST"
+          ]
+        }
+      ]
+    }
+  ],
+  "token_table_b64": [
+    "RkxBR3thbmNob3J9",
+    "RkxBR3tiZWFjb259",
+    "RkxBR3tjYW55b259",
+    "RkxBR3tkcml6emxlfQ==",
+    "RkxBR3tlbWJlcn0=",
+    "RkxBR3tmb3NzaWx9",
+    "RkxBR3tyZWFjdGlvbm1hdGh9",
+    "RkxBR3toYXJib3J9"
+  ]
+}

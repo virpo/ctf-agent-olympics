@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hotkey Relay Marathon</title>
+    <style>
+      body { font-family: ui-monospace, Menlo, Consolas, monospace; margin: 24px; background: #f8fafc; color: #0f172a; }
+      .card { max-width: 900px; border: 1px solid #d8e1ee; border-radius: 12px; background: #fff; padding: 16px; }
+      button { font: inherit; padding: 8px 12px; }
+      .keys { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+      .key { min-width: 44px; }
+      .meta { margin-top: 10px; font-variant-numeric: tabular-nums; }
+      #status { margin-top: 8px; min-height: 1.3em; }
+      #result { margin-top: 10px; font-weight: 700; }
+      code { background: #eef2ff; border-radius: 4px; padding: 2px 6px; }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Hotkey Relay Marathon</h1>
+      <p>Press the requested hotkey for each round. Wrong key resets to round 0.</p>
+      <p>Total rounds: <code id="round-count"></code>.</p>
+      <button id="start">Start Relay</button>
+
+      <div class="meta" id="meta">Round 0/0 | Target: -</div>
+      <div id="status">Press Start Relay.</div>
+      <div class="keys" id="keys"></div>
+      <p id="result"></p>
+    </div>
+
+    <script src="./config.js"></script>
+    <script>
+      const cfg = window.__cfg || { rounds: 0, seed0: 0, keys: [], salt: '', seed_check: 0, cipher: '' };
+
+      function fnv1a32(text) {
+        let h = 0x811c9dc5;
+        for (let i = 0; i < text.length; i += 1) {
+          h ^= text.charCodeAt(i);
+          h = Math.imul(h, 0x01000193) >>> 0;
+        }
+        return h >>> 0;
+      }
+
+      function lcg(x) {
+        return (Math.imul(1664525, x >>> 0) + 1013904223) >>> 0;
+      }
+
+      function deriveSeed(finalState, rounds, salt) {
+        return (finalState ^ fnv1a32(`${salt}:${rounds}:relay`) ^ 0x25525525) >>> 0;
+      }
+
+      function decryptB64(cipherB64, seed) {
+        const raw = Uint8Array.from(atob(cipherB64), (c) => c.charCodeAt(0));
+        let x = seed >>> 0;
+        const out = [];
+        for (let i = 0; i < raw.length; i += 1) {
+          x = (Math.imul(1664525, x) + 1013904223) >>> 0;
+          out.push(String.fromCharCode(raw[i] ^ ((x >>> 24) & 0xff)));
+        }
+        return out.join('');
+      }
+
+      const metaEl = document.getElementById('meta');
+      const statusEl = document.getElementById('status');
+      const resultEl = document.getElementById('result');
+      const keysEl = document.getElementById('keys');
+      const startBtn = document.getElementById('start');
+      const roundCountEl = document.getElementById('round-count');
+
+      roundCountEl.textContent = String(cfg.rounds);
+
+      let running = false;
+      let round = 0;
+      let state = Number(cfg.seed0) >>> 0;
+      let expected = '-';
+
+      function nextExpected() {
+        state = lcg(state);
+        const idx = (state >>> 16) % cfg.keys.length;
+        return String(cfg.keys[idx]);
+      }
+
+      function updateMeta() {
+        metaEl.textContent = `Round ${round}/${cfg.rounds} | Target: ${expected}`;
+      }
+
+      function resetRun(message) {
+        running = false;
+        round = 0;
+        state = Number(cfg.seed0) >>> 0;
+        expected = '-';
+        statusEl.textContent = message;
+        updateMeta();
+      }
+
+      function unlock() {
+        const seed = deriveSeed(state, cfg.rounds, cfg.salt);
+        const check = fnv1a32(`${seed}:${cfg.salt}`);
+        if ((check >>> 0) !== (Number(cfg.seed_check) >>> 0)) {
+          statusEl.textContent = 'Unlock integrity check failed.';
+          return;
+        }
+        resultEl.textContent = decryptB64(String(cfg.cipher || ''), seed);
+        statusEl.textContent = 'Relay complete.';
+        running = false;
+      }
+
+      function handleInput(key) {
+        if (!running) return;
+        const input = String(key || '').toUpperCase();
+        if (input !== expected) {
+          resetRun(`Wrong key (${input || '?'}) at round ${round + 1}. Reset.`);
+          return;
+        }
+
+        round += 1;
+        if (round >= cfg.rounds) {
+          updateMeta();
+          unlock();
+          return;
+        }
+
+        expected = nextExpected();
+        updateMeta();
+        statusEl.textContent = 'Correct.';
+      }
+
+      startBtn.addEventListener('click', () => {
+        resultEl.textContent = '';
+        running = true;
+        round = 0;
+        state = Number(cfg.seed0) >>> 0;
+        expected = nextExpected();
+        statusEl.textContent = 'Relay started.';
+        updateMeta();
+      });
+
+      document.addEventListener('keydown', (ev) => {
+        handleInput(ev.key);
+      });
+
+      cfg.keys.forEach((k) => {
+        const b = document.createElement('button');
+        b.className = 'key';
+        b.textContent = k;
+        b.addEventListener('click', () => handleInput(k));
+        keysEl.appendChild(b);
+      });
+
+      updateMeta();
+    </script>
+  </body>
+</html>

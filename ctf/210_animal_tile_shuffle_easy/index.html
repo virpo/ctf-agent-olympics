@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Animal Tile Shuffle - Easy</title>
+    <style>
+      body { font-family: ui-monospace, Menlo, Consolas, monospace; margin: 24px; background: #f8fafc; color: #0f172a; }
+      .card { background: #fff; border: 1px solid #d8dee9; border-radius: 10px; padding: 14px; max-width: 1180px; }
+      .hint { opacity: .86; }
+      .controls button { font: inherit; margin-right: 8px; padding: 6px 10px; }
+      #status { margin: 10px 0; min-height: 1.3em; }
+      .board-wrap { max-width: 100%; overflow: auto; border: 1px solid #d6deea; border-radius: 8px; padding: 4px; background: #f4f7fb; }
+      .board { display: grid; gap: 2px; border: 1px solid #cfd8e3; padding: 2px; background: #d1dae6; width: fit-content; }
+      .slot { background: #eef2f7; position: relative; overflow: hidden; }
+      .slot-label { position: absolute; top: 1px; left: 2px; z-index: 2; font-size: 9px; padding: 0 2px; border-radius: 3px; background: rgba(255, 255, 255, 0.9); color: #334155; border: 1px solid #dbe4ef; }
+      .tray { display: grid; grid-template-columns: repeat(8, max-content); gap: 6px; margin-top: 12px; border: 1px solid #dde5f1; border-radius: 8px; padding: 8px; background: #f8fbff; }
+      .tile { border: 1px solid #c8d3e0; background: #fff; padding: 2px; cursor: pointer; position: relative; z-index: 1; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; }
+      .tile.selected { outline: 2px solid #2563eb; }
+      .grid { display: grid; }
+      .cell { width: 7px; height: 7px; }
+      .tile-label { margin-top: 2px; text-align: center; font-size: 9px; color: #334155; }
+      code { background: #eef2ff; border-radius: 4px; padding: 2px 6px; }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Animal Tile Shuffle - Easy</h1>
+      <p>Easy warmup: 3x3 board.</p>
+      <p>Each tile has destination label <code>rXcY</code>. Match it to the board slot with same label.</p>
+      <p class="hint">When image is complete, submit <code>FLAG{animal_name}</code> in lowercase.</p>
+
+      <div class="controls">
+        <button id="toTray">Move Selected Back To Tray</button>
+        <button id="clearBoard">Clear Board</button>
+      </div>
+      <div id="status">Select a tile, then click matching slot label.</div>
+
+      <div class="board-wrap"><div id="board" class="board"></div></div>
+      <h3 style="margin-top:14px;">Tile Tray</h3>
+      <div id="tray" class="tray"></div>
+    </div>
+
+    <script src="./tiles_data.js"></script>
+    <script>
+      const cfg = (window.__tileCfg && Array.isArray(window.__tileCfg.tiles)) ? window.__tileCfg : { tiles: [], rows: 0, cols: 0, tile_size: 0 };
+      const boardEl = document.getElementById('board');
+      const trayEl = document.getElementById('tray');
+      const statusEl = document.getElementById('status');
+      const cellPx = 7;
+      const tileGridPx = cfg.tile_size * cellPx;
+      const tileBoxPx = Math.max(tileGridPx + 6, 40);
+      const tileBoxHeightPx = tileGridPx + 16;
+
+      boardEl.style.gridTemplateColumns = 'repeat(' + cfg.cols + ', 1fr)';
+
+      const tilesById = new Map(cfg.tiles.map((t) => [t.tile_id, t]));
+      const slots = Array(cfg.rows * cfg.cols).fill(null);
+      const slotOf = new Map(cfg.tiles.map((t) => [t.tile_id, null]));
+      const unplaced = cfg.tiles.map((t) => t.tile_id);
+      let selected = null;
+
+      function drawTile(tileId) {
+        const t = tilesById.get(tileId);
+        const wrap = document.createElement('div');
+        wrap.className = 'tile';
+        if (selected === tileId) wrap.classList.add('selected');
+        wrap.style.width = tileBoxPx + 'px';
+        wrap.style.minWidth = tileBoxPx + 'px';
+        wrap.style.height = tileBoxHeightPx + 'px';
+
+        const grid = document.createElement('div');
+        grid.className = 'grid';
+        grid.style.gridTemplateColumns = 'repeat(' + cfg.tile_size + ', ' + cellPx + 'px)';
+        grid.style.gridTemplateRows = 'repeat(' + cfg.tile_size + ', ' + cellPx + 'px)';
+        grid.style.margin = '0 auto';
+
+        t.cells.forEach((color) => {
+          const c = document.createElement('div');
+          c.className = 'cell';
+          c.style.background = color;
+          grid.appendChild(c);
+        });
+
+        const label = document.createElement('div');
+        label.className = 'tile-label';
+        label.textContent = t.target_label;
+
+        wrap.appendChild(grid);
+        wrap.appendChild(label);
+        wrap.addEventListener('click', () => { selected = tileId; render(); });
+        return wrap;
+      }
+
+      function removeFromUnplaced(tileId) { const idx = unplaced.indexOf(tileId); if (idx >= 0) unplaced.splice(idx, 1); }
+      function addToUnplaced(tileId) { if (!unplaced.includes(tileId)) unplaced.push(tileId); }
+
+      function placeSelected(slotIdx) {
+        if (!selected) return;
+        const selOldSlot = slotOf.get(selected);
+        const occupant = slots[slotIdx];
+
+        if (selOldSlot !== null) slots[selOldSlot] = null;
+        removeFromUnplaced(selected);
+        slots[slotIdx] = selected;
+        slotOf.set(selected, slotIdx);
+
+        if (occupant && occupant !== selected) {
+          if (selOldSlot !== null) {
+            slots[selOldSlot] = occupant;
+            slotOf.set(occupant, selOldSlot);
+          } else {
+            slotOf.set(occupant, null);
+            addToUnplaced(occupant);
+          }
+        }
+
+        const filled = slots.filter(Boolean).length;
+        statusEl.textContent = filled === slots.length
+          ? 'Complete. Identify the animal and submit FLAG{animal_name}.'
+          : 'Placed. Filled ' + filled + '/' + slots.length + ' tiles.';
+
+        render();
+      }
+
+      function moveSelectedToTray() {
+        if (!selected) return;
+        const old = slotOf.get(selected);
+        if (old === null) return;
+        slots[old] = null;
+        slotOf.set(selected, null);
+        addToUnplaced(selected);
+        render();
+      }
+
+      function clearBoard() {
+        cfg.tiles.forEach((t) => slotOf.set(t.tile_id, null));
+        slots.fill(null);
+        unplaced.length = 0;
+        cfg.tiles.forEach((t) => unplaced.push(t.tile_id));
+        selected = null;
+        statusEl.textContent = 'Board cleared.';
+        render();
+      }
+
+      function render() {
+        boardEl.innerHTML = '';
+        for (let i = 0; i < slots.length; i += 1) {
+          const slot = document.createElement('div');
+          slot.className = 'slot';
+          slot.style.width = tileBoxPx + 'px';
+          slot.style.height = tileBoxHeightPx + 'px';
+
+          const row = Math.floor(i / cfg.cols) + 1;
+          const col = (i % cfg.cols) + 1;
+          const slotLabel = document.createElement('div');
+          slotLabel.className = 'slot-label';
+          slotLabel.textContent = 'r' + row + 'c' + col;
+          slot.appendChild(slotLabel);
+
+          slot.addEventListener('click', () => placeSelected(i));
+          if (slots[i]) slot.appendChild(drawTile(slots[i]));
+          boardEl.appendChild(slot);
+        }
+
+        trayEl.innerHTML = '';
+        unplaced.forEach((tileId) => trayEl.appendChild(drawTile(tileId)));
+      }
+
+      document.getElementById('toTray').addEventListener('click', moveSelectedToTray);
+      document.getElementById('clearBoard').addEventListener('click', clearBoard);
+
+      render();
+    </script>
+  </body>
+</html>

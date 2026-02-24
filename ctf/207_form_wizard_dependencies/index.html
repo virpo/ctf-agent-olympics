@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Form Wizard Audit</title>
+    <style>
+      body { font-family: ui-monospace, Menlo, Consolas, monospace; margin: 24px; background: #f8f8ff; color: #1d2130; }
+      .card { background: #fff; border: 1px solid #dce2f4; border-radius: 10px; padding: 14px; max-width: 1020px; }
+      table { border-collapse: collapse; width: 100%; margin-top: 12px; }
+      th, td { border-bottom: 1px solid #e7ebf8; padding: 6px 8px; font-size: 12px; text-align: left; }
+      button { font: inherit; padding: 6px 10px; margin-right: 8px; }
+      .rules { background: #f6f9ff; border: 1px dashed #cbd6ee; border-radius: 8px; padding: 10px; }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Form Wizard Audit</h1>
+      <p>People submitted this wizard hundreds of times. Most are invalid.</p>
+      <div class="rules">
+        <strong>Rule summary:</strong>
+        <ul>
+          <li>Base required: team_name, contact_email, uses_api, mode, alerts</li>
+          <li>If uses_api=yes -> api_key is required and must start with <code>ak_</code></li>
+          <li>If mode=advanced -> advanced_code is required (6 digits)</li>
+          <li>If alerts=yes -> phone is required</li>
+          <li>Goal: find the earliest valid submission and read its payload</li>
+        </ul>
+      </div>
+      <div>
+        <button id="prev">Prev</button><button id="next">Next</button><span id="pageInfo"></span>
+      </div>
+      <table>
+        <thead><tr><th>submitted_at</th><th>team_name</th><th>email</th><th>uses_api</th><th>mode</th><th>alerts</th></tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+
+    <script src="./rows.js"></script>
+    <script>
+      const rows = Array.isArray(window.__rows) ? window.__rows : [];
+      const pageSize = 25;
+      let page = 0;
+      const tbody = document.getElementById('tbody');
+      const pageInfo = document.getElementById('pageInfo');
+
+      function render() {
+        const start = page * pageSize;
+        const slice = rows.slice(start, start + pageSize);
+        tbody.innerHTML = slice.map(r => `<tr><td>${r.submitted_at}</td><td>${r.team_name}</td><td>${r.contact_email}</td><td>${r.uses_api}</td><td>${r.mode}</td><td>${r.alerts}</td></tr>`).join('');
+        pageInfo.textContent = `Page ${page + 1} / ${Math.ceil(rows.length / pageSize)}`;
+      }
+
+      document.getElementById('prev').onclick = () => { if (page > 0) { page -= 1; render(); } };
+      document.getElementById('next').onclick = () => { if ((page + 1) * pageSize < rows.length) { page += 1; render(); } };
+      render();
+    </script>
+  </body>
+</html>

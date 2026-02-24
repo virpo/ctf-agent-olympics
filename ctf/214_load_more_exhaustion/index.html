@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Load More: Einstein Riddle</title>
+    <style>
+      body { font-family: ui-monospace, Menlo, Consolas, monospace; margin: 24px; background: #f8fafc; color: #1e293b; }
+      .card { background: #fff; border: 1px solid #dbe5ef; border-radius: 10px; padding: 14px; max-width: 980px; }
+      button { font: inherit; padding: 8px 12px; margin-right: 8px; }
+      .meta { opacity: .78; margin-top: 10px; font-size: 13px; }
+      #output { margin-top: 12px; min-height: 320px; border: 1px solid #d6e0eb; border-radius: 8px; background: #fbfdff; padding: 12px; white-space: pre-wrap; line-height: 1.32; }
+      code { background: #eef2ff; border-radius: 4px; padding: 2px 6px; }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Load More: Einstein Riddle</h1>
+      <p>Every click reveals exactly one character.</p>
+      <p>The full puzzle is hidden in the stream. Keep clicking until you can solve it.</p>
+      <button id="start">Start Over</button>
+      <button id="load" disabled>Load More</button>
+      <div class="meta" id="meta">Press Start.</div>
+      <pre id="output"></pre>
+    </div>
+
+    <script src="./pages.js"></script>
+    <script>
+      const pages = Array.isArray(window.__pages) ? window.__pages : [];
+      const output = document.getElementById('output');
+      const meta = document.getElementById('meta');
+      const loadBtn = document.getElementById('load');
+      let idx = 0;
+
+      function refreshMeta() {
+        meta.textContent = `Revealed ${idx}/${pages.length} characters`;
+      }
+
+      document.getElementById('start').addEventListener('click', () => {
+        idx = 0;
+        output.textContent = '';
+        loadBtn.disabled = false;
+        refreshMeta();
+      });
+
+      loadBtn.addEventListener('click', () => {
+        if (idx >= pages.length) return;
+        output.textContent += pages[idx].chunk_text;
+        idx += 1;
+        refreshMeta();
+        if (idx >= pages.length) {
+          loadBtn.disabled = true;
+          meta.textContent += ' (end reached)';
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,2612 @@
+[
+  {
+    "ts": "1773000000.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "sync ok \u03b2"
+  },
+  {
+    "ts": "1773000001.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "sync ok \u03bb"
+  },
+  {
+    "ts": "1773000002.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "sync ok \u03b3"
+  },
+  {
+    "ts": "1773000003.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "retry queued \u03b4"
+  },
+  {
+    "ts": "1773000004.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "retry queued \u03b3"
+  },
+  {
+    "ts": "1773000005.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "minor drift \u03b3"
+  },
+  {
+    "ts": "1773000006.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "retry queued \u03b2"
+  },
+  {
+    "ts": "1773000007.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "cache warm \u03bb"
+  },
+  {
+    "ts": "1773000008.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "cache warm \u03b2"
+  },
+  {
+    "ts": "1773000009.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "mirror text \u00f8"
+  },
+  {
+    "ts": "1773000010.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "sync ok \u03b3"
+  },
+  {
+    "ts": "1773000011.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "retry queued \u03bb"
+  },
+  {
+    "ts": "1773000012.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "cache warm \u00f8"
+  },
+  {
+    "ts": "1773000013.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "minor drift \u03b1"
+  },
+  {
+    "ts": "1773000014.000000",
+    "author": "observer",
+    "trusted": true,
+    "text": "sync ok \u03b3"
+  },
+  {
+    "ts": "1773000015.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "cache warm \u03bb"
+  },
+  {
+    "ts": "1773000016.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "retry queued \u03b3"
+  },
+  {
+    "ts": "1773000017.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "retry queued \u03b2"
+  },
+  {
+    "ts": "1773000018.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "minor drift \u03bb"
+  },
+  {
+    "ts": "1773000019.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "cache warm \u03bb"
+  },
+  {
+    "ts": "1773000020.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "retry queued \u03b4"
+  },
+  {
+    "ts": "1773000021.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "cache warm \u03b1"
+  },
+  {
+    "ts": "1773000022.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "retry queued \u03bb"
+  },
+  {
+    "ts": "1773000023.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "mirror text \u03b3"
+  },
+  {
+    "ts": "1773000024.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "mirror text \u03b3"
+  },
+  {
+    "ts": "1773000025.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "cache warm \u03b4"
+  },
+  {
+    "ts": "1773000026.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "mirror text \u03b2"
+  },
+  {
+    "ts": "1773000027.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "sync ok \u00f8"
+  },
+  {
+    "ts": "1773000028.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "retry queued \u03b3"
+  },
+  {
+    "ts": "1773000029.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "mirror text \u03b2"
+  },
+  {
+    "ts": "1773000030.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "mirror text \u03bb"
+  },
+  {
+    "ts": "1773000031.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "mirror text \u00f8"
+  },
+  {
+    "ts": "1773000032.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "cache warm \u03b3"
+  },
+  {
+    "ts": "1773000033.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "sync ok \u03bb"
+  },
+  {
+    "ts": "1773000034.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "sync ok \u03b3"
+  },
+  {
+    "ts": "1773000035.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "cache warm \u03b4"
+  },
+  {
+    "ts": "1773000036.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "sync ok \u03b1"
+  },
+  {
+    "ts": "1773000037.000000",
+    "author": "observer",
+    "trusted": true,
+    "text": "mirror text \u03b4"
+  },
+  {
+    "ts": "1773000038.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "retry queued \u03b1"
+  },
+  {
+    "ts": "1773000039.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "retry queued \u00f8"
+  },
+  {
+    "ts": "1773000040.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "mirror text \u03b1"
+  },
+  {
+    "ts": "1773000041.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "sync ok \u03b2"
+  },
+  {
+    "ts": "1773000042.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "minor drift \u03bb"
+  },
+  {
+    "ts": "1773000043.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "sync ok \u03b1"
+  },
+  {
+    "ts": "1773000044.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "mirror text \u00f8"
+  },
+  {
+    "ts": "1773000045.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "mirror text \u03bb"
+  },
+  {
+    "ts": "1773000046.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "sync ok \u03bb"
+  },
+  {
+    "ts": "1773000047.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "mirror text \u03b1"
+  },
+  {
+    "ts": "1773000048.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "sync ok \u03b1"
+  },
+  {
+    "ts": "1773000049.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "retry queued \u03b4"
+  },
+  {
+    "ts": "1773000050.000000",
+    "author": "observer",
+    "trusted": true,
+    "text": "mirror text \u03b1"
+  },
+  {
+    "ts": "1773000051.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "sync ok \u03b3"
+  },
+  {
+    "ts": "1773000052.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "retry queued \u03b2"
+  },
+  {
+    "ts": "1773000053.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "retry queued \u03b4"
+  },
+  {
+    "ts": "1773000054.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "cache warm \u03b3"
+  },
+  {
+    "ts": "1773000055.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "retry queued \u03bb"
+  },
+  {
+    "ts": "1773000056.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "cache warm \u03bb"
+  },
+  {
+    "ts": "1773000057.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "cache warm \u03bb"
+  },
+  {
+    "ts": "1773000058.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "minor drift \u03b4"
+  },
+  {
+    "ts": "1773000059.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "retry queued \u03b3"
+  },
+  {
+    "ts": "1773000060.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "cache warm \u00f8"
+  },
+  {
+    "ts": "1773000061.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "sync ok \u03b2"
+  },
+  {
+    "ts": "1773000062.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "sync ok \u03b4"
+  },
+  {
+    "ts": "1773000063.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "minor drift \u03b4"
+  },
+  {
+    "ts": "1773000064.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "sync ok \u03bb"
+  },
+  {
+    "ts": "1773000065.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "minor drift \u03b2"
+  },
+  {
+    "ts": "1773000066.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "mirror text \u03b1"
+  },
+  {
+    "ts": "1773000067.000000",
+    "author": "observer",
+    "trusted": true,
+    "text": "cache warm \u03b3"
+  },
+  {
+    "ts": "1773000068.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "sync ok \u03b3"
+  },
+  {
+    "ts": "1773000069.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "sync ok \u00f8"
+  },
+  {
+    "ts": "1773000070.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "retry queued \u03b3"
+  },
+  {
+    "ts": "1773000071.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "cache warm \u03b1"
+  },
+  {
+    "ts": "1773000072.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "cache warm \u03b2"
+  },
+  {
+    "ts": "1773000073.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "cache warm \u03b4"
+  },
+  {
+    "ts": "1773000074.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "mirror text \u03b1"
+  },
+  {
+    "ts": "1773000075.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "mirror text \u03b2"
+  },
+  {
+    "ts": "1773000076.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "retry queued \u00f8"
+  },
+  {
+    "ts": "1773000077.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "retry queued \u03b2"
+  },
+  {
+    "ts": "1773000078.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "retry queued \u03bb"
+  },
+  {
+    "ts": "1773000079.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "sync ok \u00f8"
+  },
+  {
+    "ts": "1773000080.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "retry queued \u03b2"
+  },
+  {
+    "ts": "1773000081.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "sync ok \u00f8"
+  },
+  {
+    "ts": "1773000082.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "minor drift \u03bb"
+  },
+  {
+    "ts": "1773000083.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "minor drift \u03b3"
+  },
+  {
+    "ts": "1773000084.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "mirror text \u03b2"
+  },
+  {
+    "ts": "1773000085.000000",
+    "author": "observer",
+    "trusted": true,
+    "text": "minor drift \u00f8"
+  },
+  {
+    "ts": "1773000086.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "sync ok \u03bb"
+  },
+  {
+    "ts": "1773000087.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "retry queued \u03b3"
+  },
+  {
+    "ts": "1773000088.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "sync ok \u03b4"
+  },
+  {
+    "ts": "1773000089.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "minor drift \u03b1"
+  },
+  {
+    "ts": "1773000090.000000",
+    "author": "observer",
+    "trusted": true,
+    "text": "minor drift \u03b3"
+  },
+  {
+    "ts": "1773000091.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "cache warm \u03b3"
+  },
+  {
+    "ts": "1773000092.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "cache warm \u03b2"
+  },
+  {
+    "ts": "1773000093.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "mirror text \u00f8"
+  },
+  {
+    "ts": "1773000094.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "minor drift \u00f8"
+  },
+  {
+    "ts": "1773000095.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "minor drift \u03b2"
+  },
+  {
+    "ts": "1773000096.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "sync ok \u03b3"
+  },
+  {
+    "ts": "1773000097.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "cache warm \u03b4"
+  },
+  {
+    "ts": "1773000098.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "sync ok \u03b1"
+  },
+  {
+    "ts": "1773000099.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "cache warm \u03b1"
+  },
+  {
+    "ts": "1773000100.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "sync ok \u00f8"
+  },
+  {
+    "ts": "1773000101.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "minor drift \u03b2"
+  },
+  {
+    "ts": "1773000102.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "mirror text \u03b4"
+  },
+  {
+    "ts": "1773000103.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "retry queued \u03b1"
+  },
+  {
+    "ts": "1773000104.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "cache warm \u03b4"
+  },
+  {
+    "ts": "1773000105.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "cache warm \u03bb"
+  },
+  {
+    "ts": "1773000106.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "cache warm \u03bb"
+  },
+  {
+    "ts": "1773000107.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "sync ok \u03b2"
+  },
+  {
+    "ts": "1773000108.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "retry queued \u03b4"
+  },
+  {
+    "ts": "1773000109.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "retry queued \u03b4"
+  },
+  {
+    "ts": "1773000110.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "cache warm \u00f8"
+  },
+  {
+    "ts": "1773000111.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "cache warm \u00f8"
+  },
+  {
+    "ts": "1773000112.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "mirror text \u03b1"
+  },
+  {
+    "ts": "1773000113.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "mirror text \u00f8"
+  },
+  {
+    "ts": "1773000114.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "minor drift \u00f8"
+  },
+  {
+    "ts": "1773000115.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "sync ok \u03b4"
+  },
+  {
+    "ts": "1773000116.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "sync ok \u03b1"
+  },
+  {
+    "ts": "1773000117.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "cache warm \u03b4"
+  },
+  {
+    "ts": "1773000118.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "retry queued \u03b4"
+  },
+  {
+    "ts": "1773000119.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "mirror text \u03b2"
+  },
+  {
+    "ts": "1773000120.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "mirror text \u03bb"
+  },
+  {
+    "ts": "1773000121.000000",
+    "author": "observer",
+    "trusted": true,
+    "text": "retry queued \u03bb"
+  },
+  {
+    "ts": "1773000122.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "sync ok \u00f8"
+  },
+  {
+    "ts": "1773000123.000000",
+    "author": "observer",
+    "trusted": true,
+    "text": "cache warm \u03b2"
+  },
+  {
+    "ts": "1773000124.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "retry queued \u03b3"
+  },
+  {
+    "ts": "1773000125.000000",
+    "author": "observer",
+    "trusted": true,
+    "text": "retry queued \u03b1"
+  },
+  {
+    "ts": "1773000126.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "retry queued \u03b2"
+  },
+  {
+    "ts": "1773000127.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "minor drift \u03bb"
+  },
+  {
+    "ts": "1773000128.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "retry queued \u03b2"
+  },
+  {
+    "ts": "1773000129.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "sync ok \u03bb"
+  },
+  {
+    "ts": "1773000130.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "retry queued \u03b1"
+  },
+  {
+    "ts": "1773000131.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "sync ok \u00f8"
+  },
+  {
+    "ts": "1773000132.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "retry queued \u03b1"
+  },
+  {
+    "ts": "1773000133.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "retry queued \u03bb"
+  },
+  {
+    "ts": "1773000134.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "mirror text \u03b1"
+  },
+  {
+    "ts": "1773000135.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "mirror text \u03b4"
+  },
+  {
+    "ts": "1773000136.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "minor drift \u03bb"
+  },
+  {
+    "ts": "1773000137.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "sync ok \u00f8"
+  },
+  {
+    "ts": "1773000138.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "cache warm \u03b4"
+  },
+  {
+    "ts": "1773000139.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "sync ok \u03b1"
+  },
+  {
+    "ts": "1773000140.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "cache warm \u03bb"
+  },
+  {
+    "ts": "1773000141.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "retry queued \u03b2"
+  },
+  {
+    "ts": "1773000142.000000",
+    "author": "observer",
+    "trusted": true,
+    "text": "retry queued \u03b2"
+  },
+  {
+    "ts": "1773000143.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "sync ok \u00f8"
+  },
+  {
+    "ts": "1773000144.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "mirror text \u03bb"
+  },
+  {
+    "ts": "1773000145.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "sync ok \u00f8"
+  },
+  {
+    "ts": "1773000146.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "cache warm \u00f8"
+  },
+  {
+    "ts": "1773000147.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "retry queued \u03b4"
+  },
+  {
+    "ts": "1773000148.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "cache warm \u03b2"
+  },
+  {
+    "ts": "1773000149.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "cache warm \u03b4"
+  },
+  {
+    "ts": "1773000150.000000",
+    "author": "observer",
+    "trusted": true,
+    "text": "retry queued \u03b2"
+  },
+  {
+    "ts": "1773000151.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "minor drift \u03b2"
+  },
+  {
+    "ts": "1773000152.000000",
+    "author": "observer",
+    "trusted": true,
+    "text": "retry queued \u03b3"
+  },
+  {
+    "ts": "1773000153.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "retry queued \u03b1"
+  },
+  {
+    "ts": "1773000154.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "sync ok \u03b3"
+  },
+  {
+    "ts": "1773000155.000000",
+    "author": "observer",
+    "trusted": true,
+    "text": "sync ok \u03b3"
+  },
+  {
+    "ts": "1773000156.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "sync ok \u03b4"
+  },
+  {
+    "ts": "1773000157.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "sync ok \u03b2"
+  },
+  {
+    "ts": "1773000158.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "sync ok \u03b3"
+  },
+  {
+    "ts": "1773000159.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "retry queued \u03b4"
+  },
+  {
+    "ts": "1773000160.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "mirror text \u03b2"
+  },
+  {
+    "ts": "1773000161.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "mirror text \u03b1"
+  },
+  {
+    "ts": "1773000162.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "sync ok \u03b2"
+  },
+  {
+    "ts": "1773000163.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "mirror text \u03b2"
+  },
+  {
+    "ts": "1773000164.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "sync ok \u03bb"
+  },
+  {
+    "ts": "1773000165.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "retry queued \u03bb"
+  },
+  {
+    "ts": "1773000166.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "mirror text \u00f8"
+  },
+  {
+    "ts": "1773000167.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "cache warm \u00f8"
+  },
+  {
+    "ts": "1773000168.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "mirror text \u00f8"
+  },
+  {
+    "ts": "1773000169.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "minor drift \u03b3"
+  },
+  {
+    "ts": "1773000170.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "cache warm \u03b3"
+  },
+  {
+    "ts": "1773000171.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "retry queued \u03b3"
+  },
+  {
+    "ts": "1773000172.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "mirror text \u03b3"
+  },
+  {
+    "ts": "1773000173.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "sync ok \u03b1"
+  },
+  {
+    "ts": "1773000174.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "minor drift \u00f8"
+  },
+  {
+    "ts": "1773000175.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "minor drift \u03b2"
+  },
+  {
+    "ts": "1773000176.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "minor drift \u03b2"
+  },
+  {
+    "ts": "1773000177.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "mirror text \u03b2"
+  },
+  {
+    "ts": "1773000178.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "retry queued \u03b1"
+  },
+  {
+    "ts": "1773000179.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "sync ok \u03b4"
+  },
+  {
+    "ts": "1773000180.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "mirror text \u03b3"
+  },
+  {
+    "ts": "1773000181.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "retry queued \u03bb"
+  },
+  {
+    "ts": "1773000182.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "minor drift \u03b1"
+  },
+  {
+    "ts": "1773000183.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "mirror text \u03b4"
+  },
+  {
+    "ts": "1773000184.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "retry queued \u03b2"
+  },
+  {
+    "ts": "1773000185.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "minor drift \u03b1"
+  },
+  {
+    "ts": "1773000186.000000",
+    "author": "observer",
+    "trusted": true,
+    "text": "mirror text \u03bb"
+  },
+  {
+    "ts": "1773000187.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "mirror text \u03b1"
+  },
+  {
+    "ts": "1773000188.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "cache warm \u03b2"
+  },
+  {
+    "ts": "1773000189.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "cache warm \u03b1"
+  },
+  {
+    "ts": "1773000190.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "cache warm \u03b2"
+  },
+  {
+    "ts": "1773000191.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "cache warm \u00f8"
+  },
+  {
+    "ts": "1773000192.000000",
+    "author": "observer",
+    "trusted": true,
+    "text": "retry queued \u03b4"
+  },
+  {
+    "ts": "1773000193.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "retry queued \u03bb"
+  },
+  {
+    "ts": "1773000194.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "mirror text \u03b2"
+  },
+  {
+    "ts": "1773000195.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "mirror text \u00f8"
+  },
+  {
+    "ts": "1773000196.000000",
+    "author": "observer",
+    "trusted": true,
+    "text": "retry queued \u03b2"
+  },
+  {
+    "ts": "1773000197.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "sync ok \u00f8"
+  },
+  {
+    "ts": "1773000198.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "mirror text \u03bb"
+  },
+  {
+    "ts": "1773000199.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "mirror text \u03bb"
+  },
+  {
+    "ts": "1773000200.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "sync ok \u03b4"
+  },
+  {
+    "ts": "1773000201.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "mirror text \u03bb"
+  },
+  {
+    "ts": "1773000202.000000",
+    "author": "observer",
+    "trusted": true,
+    "text": "retry queued \u03b4"
+  },
+  {
+    "ts": "1773000203.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "retry queued \u03b1"
+  },
+  {
+    "ts": "1773000204.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "retry queued \u03bb"
+  },
+  {
+    "ts": "1773000205.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "minor drift \u03b3"
+  },
+  {
+    "ts": "1773000206.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "retry queued \u03b1"
+  },
+  {
+    "ts": "1773000207.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "retry queued \u03b2"
+  },
+  {
+    "ts": "1773000208.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "retry queued \u03b2"
+  },
+  {
+    "ts": "1773000209.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "retry queued \u03b1"
+  },
+  {
+    "ts": "1773000210.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "retry queued \u03b2"
+  },
+  {
+    "ts": "1773000211.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "cache warm \u03b3"
+  },
+  {
+    "ts": "1773000212.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "minor drift \u00f8"
+  },
+  {
+    "ts": "1773000213.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "minor drift \u03b2"
+  },
+  {
+    "ts": "1773000214.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "mirror text \u03b1"
+  },
+  {
+    "ts": "1773000215.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "cache warm \u03b2"
+  },
+  {
+    "ts": "1773000216.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "retry queued \u03b2"
+  },
+  {
+    "ts": "1773000217.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "retry queued \u03b1"
+  },
+  {
+    "ts": "1773000218.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "mirror text \u03b3"
+  },
+  {
+    "ts": "1773000219.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "sync ok \u03b3"
+  },
+  {
+    "ts": "1773000220.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "cache warm \u03b2"
+  },
+  {
+    "ts": "1773000221.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "retry queued \u03b1"
+  },
+  {
+    "ts": "1773000222.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "retry queued \u03b4"
+  },
+  {
+    "ts": "1773000223.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "mirror text \u03bb"
+  },
+  {
+    "ts": "1773000224.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "retry queued \u03b4"
+  },
+  {
+    "ts": "1773000225.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "cache warm \u03b1"
+  },
+  {
+    "ts": "1773000226.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "mirror text \u03b2"
+  },
+  {
+    "ts": "1773000227.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "sync ok \u03b1"
+  },
+  {
+    "ts": "1773000228.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "mirror text \u00f8"
+  },
+  {
+    "ts": "1773000229.000000",
+    "author": "observer",
+    "trusted": true,
+    "text": "minor drift \u03b1"
+  },
+  {
+    "ts": "1773000230.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "sync ok \u03b1"
+  },
+  {
+    "ts": "1773000231.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "mirror text \u03b1"
+  },
+  {
+    "ts": "1773000232.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "minor drift \u00f8"
+  },
+  {
+    "ts": "1773000233.000000",
+    "author": "observer",
+    "trusted": true,
+    "text": "minor drift \u03b1"
+  },
+  {
+    "ts": "1773000234.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "retry queued \u03b1"
+  },
+  {
+    "ts": "1773000235.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "sync ok \u03b1"
+  },
+  {
+    "ts": "1773000236.000000",
+    "author": "observer",
+    "trusted": true,
+    "text": "sync ok \u03b1"
+  },
+  {
+    "ts": "1773000237.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "mirror text \u03b2"
+  },
+  {
+    "ts": "1773000238.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "sync ok \u00f8"
+  },
+  {
+    "ts": "1773000239.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "mirror text \u03b4"
+  },
+  {
+    "ts": "1773000240.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "minor drift \u03b2"
+  },
+  {
+    "ts": "1773000241.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "minor drift \u03b1"
+  },
+  {
+    "ts": "1773000242.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "retry queued \u03b1"
+  },
+  {
+    "ts": "1773000243.000000",
+    "author": "observer",
+    "trusted": true,
+    "text": "mirror text \u03b4"
+  },
+  {
+    "ts": "1773000244.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "minor drift \u00f8"
+  },
+  {
+    "ts": "1773000245.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "retry queued \u03b1"
+  },
+  {
+    "ts": "1773000246.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "mirror text \u03b2"
+  },
+  {
+    "ts": "1773000247.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "sync ok \u03b3"
+  },
+  {
+    "ts": "1773000248.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "sync ok \u03b3"
+  },
+  {
+    "ts": "1773000249.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "minor drift \u03b4"
+  },
+  {
+    "ts": "1773000250.000000",
+    "author": "observer",
+    "trusted": true,
+    "text": "minor drift \u03b2"
+  },
+  {
+    "ts": "1773000251.000000",
+    "author": "observer",
+    "trusted": true,
+    "text": "cache warm \u03b2"
+  },
+  {
+    "ts": "1773000252.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "cache warm \u00f8"
+  },
+  {
+    "ts": "1773000253.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "retry queued \u03b2"
+  },
+  {
+    "ts": "1773000254.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "sync ok \u03b1"
+  },
+  {
+    "ts": "1773000255.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "minor drift \u03b1"
+  },
+  {
+    "ts": "1773000256.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "sync ok \u00f8"
+  },
+  {
+    "ts": "1773000257.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "minor drift \u03b1"
+  },
+  {
+    "ts": "1773000258.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "sync ok \u00f8"
+  },
+  {
+    "ts": "1773000259.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "sync ok \u03b4"
+  },
+  {
+    "ts": "1773000260.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "mirror text \u00f8"
+  },
+  {
+    "ts": "1773000261.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "sync ok \u03b3"
+  },
+  {
+    "ts": "1773000262.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "mirror text \u03bb"
+  },
+  {
+    "ts": "1773000263.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "mirror text \u03b3"
+  },
+  {
+    "ts": "1773000264.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "minor drift \u00f8"
+  },
+  {
+    "ts": "1773000265.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "sync ok \u03b4"
+  },
+  {
+    "ts": "1773000266.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "retry queued \u03b2"
+  },
+  {
+    "ts": "1773000267.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "retry queued \u03b2"
+  },
+  {
+    "ts": "1773000268.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "minor drift \u03b1"
+  },
+  {
+    "ts": "1773000269.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "retry queued \u00f8"
+  },
+  {
+    "ts": "1773000270.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "cache warm \u03b4"
+  },
+  {
+    "ts": "1773000271.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "cache warm \u03b4"
+  },
+  {
+    "ts": "1773000272.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "cache warm \u03b3"
+  },
+  {
+    "ts": "1773000273.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "sync ok \u00f8"
+  },
+  {
+    "ts": "1773000274.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "mirror text \u03b2"
+  },
+  {
+    "ts": "1773000275.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "mirror text \u03b3"
+  },
+  {
+    "ts": "1773000276.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "minor drift \u03b2"
+  },
+  {
+    "ts": "1773000277.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "minor drift \u03b3"
+  },
+  {
+    "ts": "1773000278.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "minor drift \u03b2"
+  },
+  {
+    "ts": "1773000279.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "sync ok \u03b2"
+  },
+  {
+    "ts": "1773000280.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "retry queued \u03b2"
+  },
+  {
+    "ts": "1773000281.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "sync ok \u03b4"
+  },
+  {
+    "ts": "1773000282.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "minor drift \u00f8"
+  },
+  {
+    "ts": "1773000283.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "cache warm \u00f8"
+  },
+  {
+    "ts": "1773000284.000000",
+    "author": "observer",
+    "trusted": true,
+    "text": "cache warm \u00f8"
+  },
+  {
+    "ts": "1773000285.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "minor drift \u03b1"
+  },
+  {
+    "ts": "1773000286.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "mirror text \u03b4"
+  },
+  {
+    "ts": "1773000287.000000",
+    "author": "observer",
+    "trusted": true,
+    "text": "cache warm \u03b1"
+  },
+  {
+    "ts": "1773000288.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "sync ok \u03b1"
+  },
+  {
+    "ts": "1773000289.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "retry queued \u03b1"
+  },
+  {
+    "ts": "1773000290.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "minor drift \u03b2"
+  },
+  {
+    "ts": "1773000291.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "mirror text \u03bb"
+  },
+  {
+    "ts": "1773000292.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "minor drift \u03b3"
+  },
+  {
+    "ts": "1773000293.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "minor drift \u03b4"
+  },
+  {
+    "ts": "1773000294.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "retry queued \u03b3"
+  },
+  {
+    "ts": "1773000295.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "sync ok \u03b3"
+  },
+  {
+    "ts": "1773000296.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "mirror text \u00f8"
+  },
+  {
+    "ts": "1773000297.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "minor drift \u00f8"
+  },
+  {
+    "ts": "1773000298.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "sync ok \u03b4"
+  },
+  {
+    "ts": "1773000299.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "cache warm \u03b2"
+  },
+  {
+    "ts": "1773000300.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "minor drift \u03bb"
+  },
+  {
+    "ts": "1773000301.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "cache warm \u00f8"
+  },
+  {
+    "ts": "1773000302.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "retry queued \u03b2"
+  },
+  {
+    "ts": "1773000303.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "mirror text \u03b1"
+  },
+  {
+    "ts": "1773000304.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "sync ok \u03b3"
+  },
+  {
+    "ts": "1773000305.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "retry queued \u00f8"
+  },
+  {
+    "ts": "1773000306.000000",
+    "author": "observer",
+    "trusted": true,
+    "text": "cache warm \u03b3"
+  },
+  {
+    "ts": "1773000307.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "retry queued \u00f8"
+  },
+  {
+    "ts": "1773000308.000000",
+    "author": "observer",
+    "trusted": true,
+    "text": "mirror text \u03b2"
+  },
+  {
+    "ts": "1773000309.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "cache warm \u03bb"
+  },
+  {
+    "ts": "1773000310.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "retry queued \u00f8"
+  },
+  {
+    "ts": "1773000311.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "cache warm \u00f8"
+  },
+  {
+    "ts": "1773000312.000000",
+    "author": "observer",
+    "trusted": true,
+    "text": "mirror text \u03b4"
+  },
+  {
+    "ts": "1773000313.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "minor drift \u03b2"
+  },
+  {
+    "ts": "1773000314.000000",
+    "author": "observer",
+    "trusted": true,
+    "text": "cache warm \u03b1"
+  },
+  {
+    "ts": "1773000315.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "sync ok \u03bb"
+  },
+  {
+    "ts": "1773000316.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "retry queued \u00f8"
+  },
+  {
+    "ts": "1773000317.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "mirror text \u00f8"
+  },
+  {
+    "ts": "1773000318.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "cache warm \u03bb"
+  },
+  {
+    "ts": "1773000319.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "mirror text \u00f8"
+  },
+  {
+    "ts": "1773000320.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "retry queued \u03b3"
+  },
+  {
+    "ts": "1773000321.000000",
+    "author": "observer",
+    "trusted": true,
+    "text": "cache warm \u00f8"
+  },
+  {
+    "ts": "1773000322.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "cache warm \u03b3"
+  },
+  {
+    "ts": "1773000323.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "cache warm \u00f8"
+  },
+  {
+    "ts": "1773000324.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "sync ok \u03b1"
+  },
+  {
+    "ts": "1773000325.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "mirror text \u03b4"
+  },
+  {
+    "ts": "1773000326.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "minor drift \u03b1"
+  },
+  {
+    "ts": "1773000327.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "mirror text \u00f8"
+  },
+  {
+    "ts": "1773000328.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "retry queued \u03b4"
+  },
+  {
+    "ts": "1773000329.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "sync ok \u03b2"
+  },
+  {
+    "ts": "1773000330.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "sync ok \u03b2"
+  },
+  {
+    "ts": "1773000331.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "sync ok \u03b1"
+  },
+  {
+    "ts": "1773000332.000000",
+    "author": "observer",
+    "trusted": true,
+    "text": "sync ok \u03b2"
+  },
+  {
+    "ts": "1773000333.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "mirror text \u03b1"
+  },
+  {
+    "ts": "1773000334.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "mirror text \u03bb"
+  },
+  {
+    "ts": "1773000335.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "cache warm \u03b4"
+  },
+  {
+    "ts": "1773000336.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "retry queued \u03b2"
+  },
+  {
+    "ts": "1773000337.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "cache warm \u03bb"
+  },
+  {
+    "ts": "1773000338.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "minor drift \u03b4"
+  },
+  {
+    "ts": "1773000339.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "cache warm \u03bb"
+  },
+  {
+    "ts": "1773000340.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "sync ok \u00f8"
+  },
+  {
+    "ts": "1773000341.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "retry queued \u03b4"
+  },
+  {
+    "ts": "1773000342.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "sync ok \u03b3"
+  },
+  {
+    "ts": "1773000343.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "retry queued \u03b3"
+  },
+  {
+    "ts": "1773000344.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "cache warm \u00f8"
+  },
+  {
+    "ts": "1773000345.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "cache warm \u03b4"
+  },
+  {
+    "ts": "1773000346.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "mirror text \u03b1"
+  },
+  {
+    "ts": "1773000347.000000",
+    "author": "observer",
+    "trusted": true,
+    "text": "minor drift \u00f8"
+  },
+  {
+    "ts": "1773000348.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "retry queued \u03b1"
+  },
+  {
+    "ts": "1773000349.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "cache warm \u03b1"
+  },
+  {
+    "ts": "1773000350.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "mirror text \u03b1"
+  },
+  {
+    "ts": "1773000351.000000",
+    "author": "observer",
+    "trusted": true,
+    "text": "cache warm \u03b3"
+  },
+  {
+    "ts": "1773000352.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "mirror text \u03b2"
+  },
+  {
+    "ts": "1773000353.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "retry queued \u03b1"
+  },
+  {
+    "ts": "1773000354.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "mirror text \u03b1"
+  },
+  {
+    "ts": "1773000355.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "mirror text \u03b4"
+  },
+  {
+    "ts": "1773000356.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "sync ok \u03b1"
+  },
+  {
+    "ts": "1773000357.000000",
+    "author": "observer",
+    "trusted": true,
+    "text": "retry queued \u03b4"
+  },
+  {
+    "ts": "1773000358.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "minor drift \u03b3"
+  },
+  {
+    "ts": "1773000359.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "sync ok \u03b4"
+  },
+  {
+    "ts": "1773000360.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "cache warm \u03b2"
+  },
+  {
+    "ts": "1773000361.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "sync ok \u03bb"
+  },
+  {
+    "ts": "1773000362.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "mirror text \u03b3"
+  },
+  {
+    "ts": "1773000363.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "mirror text \u03bb"
+  },
+  {
+    "ts": "1773000364.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "cache warm \u03b3"
+  },
+  {
+    "ts": "1773000365.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "cache warm \u03bb"
+  },
+  {
+    "ts": "1773000366.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "cache warm \u00f8"
+  },
+  {
+    "ts": "1773000367.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "retry queued \u00f8"
+  },
+  {
+    "ts": "1773000368.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "sync ok \u03b1"
+  },
+  {
+    "ts": "1773000369.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "minor drift \u03b3"
+  },
+  {
+    "ts": "1773000370.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "sync ok \u03bb"
+  },
+  {
+    "ts": "1773000371.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "sync ok \u00f8"
+  },
+  {
+    "ts": "1773000372.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "sync ok \u00f8"
+  },
+  {
+    "ts": "1773000373.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "cache warm \u03b2"
+  },
+  {
+    "ts": "1773000374.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "retry queued \u00f8"
+  },
+  {
+    "ts": "1773000375.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "retry queued \u03b2"
+  },
+  {
+    "ts": "1773000376.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "mirror text \u03b4"
+  },
+  {
+    "ts": "1773000377.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "retry queued \u03b4"
+  },
+  {
+    "ts": "1773000378.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "mirror text \u00f8"
+  },
+  {
+    "ts": "1773000379.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "mirror text \u03bb"
+  },
+  {
+    "ts": "1773000380.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "sync ok \u03bb"
+  },
+  {
+    "ts": "1773000381.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "mirror text \u03b4"
+  },
+  {
+    "ts": "1773000382.000000",
+    "author": "observer",
+    "trusted": true,
+    "text": "cache warm \u03b1"
+  },
+  {
+    "ts": "1773000383.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "sync ok \u03b1"
+  },
+  {
+    "ts": "1773000384.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "cache warm \u03b4"
+  },
+  {
+    "ts": "1773000385.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "retry queued \u03b2"
+  },
+  {
+    "ts": "1773000386.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "cache warm \u03b3"
+  },
+  {
+    "ts": "1773000387.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "sync ok \u03b3"
+  },
+  {
+    "ts": "1773000388.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "sync ok \u03b3"
+  },
+  {
+    "ts": "1773000389.000000",
+    "author": "observer",
+    "trusted": true,
+    "text": "retry queued \u03b4"
+  },
+  {
+    "ts": "1773000390.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "cache warm \u03bb"
+  },
+  {
+    "ts": "1773000391.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "minor drift \u03b1"
+  },
+  {
+    "ts": "1773000392.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "minor drift \u00f8"
+  },
+  {
+    "ts": "1773000393.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "retry queued \u03bb"
+  },
+  {
+    "ts": "1773000394.000000",
+    "author": "observer",
+    "trusted": true,
+    "text": "mirror text \u03b4"
+  },
+  {
+    "ts": "1773000395.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "sync ok \u03b2"
+  },
+  {
+    "ts": "1773000396.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "minor drift \u03b3"
+  },
+  {
+    "ts": "1773000397.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "cache warm \u00f8"
+  },
+  {
+    "ts": "1773000398.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "mirror text \u00f8"
+  },
+  {
+    "ts": "1773000399.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "mirror text \u03bb"
+  },
+  {
+    "ts": "1773000400.000000",
+    "author": "observer",
+    "trusted": true,
+    "text": "retry queued \u00f8"
+  },
+  {
+    "ts": "1773000401.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "sync ok \u00f8"
+  },
+  {
+    "ts": "1773000402.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "sync ok \u00f8"
+  },
+  {
+    "ts": "1773000403.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "retry queued \u03b2"
+  },
+  {
+    "ts": "1773000404.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "minor drift \u03b2"
+  },
+  {
+    "ts": "1773000405.000000",
+    "author": "observer",
+    "trusted": true,
+    "text": "mirror text \u00f8"
+  },
+  {
+    "ts": "1773000406.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "cache warm \u03b1"
+  },
+  {
+    "ts": "1773000407.000000",
+    "author": "observer",
+    "trusted": true,
+    "text": "mirror text \u03b4"
+  },
+  {
+    "ts": "1773000408.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "minor drift \u03b1"
+  },
+  {
+    "ts": "1773000409.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "mirror text \u03b2"
+  },
+  {
+    "ts": "1773000410.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "mirror text \u00f8"
+  },
+  {
+    "ts": "1773000411.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "cache warm \u00f8"
+  },
+  {
+    "ts": "1773000412.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "retry queued \u03b3"
+  },
+  {
+    "ts": "1773000413.000000",
+    "author": "observer",
+    "trusted": false,
+    "text": "cache warm \u03b3"
+  },
+  {
+    "ts": "1773000414.000000",
+    "author": "observer",
+    "trusted": true,
+    "text": "cache warm \u03b4"
+  },
+  {
+    "ts": "1773000415.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "cache warm \u00f8"
+  },
+  {
+    "ts": "1773000416.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "sync ok \u03b1"
+  },
+  {
+    "ts": "1773000417.000000",
+    "author": "mirror",
+    "trusted": true,
+    "text": "minor drift \u03b3"
+  },
+  {
+    "ts": "1773000418.000000",
+    "author": "mirror",
+    "trusted": false,
+    "text": "mirror text \u00f8"
+  },
+  {
+    "ts": "1773000419.000000",
+    "author": "ops_bot",
+    "trusted": false,
+    "text": "sync ok \u03b2"
+  },
+  {
+    "ts": "1773000500.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "token:[\u200bF\u200c]"
+  },
+  {
+    "ts": "1773000501.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "token:[\ufeffL\u200c]"
+  },
+  {
+    "ts": "1773000502.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "token:[\u200dA\ufeff]"
+  },
+  {
+    "ts": "1773000503.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "token:[\u200cG\u200b]"
+  },
+  {
+    "ts": "1773000504.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "token:[\u200c{\u200b]"
+  },
+  {
+    "ts": "1773000505.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "token:[\u200bn\u200d]"
+  },
+  {
+    "ts": "1773000506.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "token:[\u200do\ufeff]"
+  },
+  {
+    "ts": "1773000507.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "token:[\u200dr\u200c]"
+  },
+  {
+    "ts": "1773000508.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "token:[\u200dm\u200c]"
+  },
+  {
+    "ts": "1773000509.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "token:[\u200ba\u200c]"
+  },
+  {
+    "ts": "1773000510.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "token:[\u200dl\u200c]"
+  },
+  {
+    "ts": "1773000511.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "token:[\ufeffi\u200d]"
+  },
+  {
+    "ts": "1773000512.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "token:[\u200cz\u200b]"
+  },
+  {
+    "ts": "1773000513.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "token:[\u200ce\u200b]"
+  },
+  {
+    "ts": "1773000514.000000",
+    "author": "ops_bot",
+    "trusted": true,
+    "text": "token:[\u200c}\u200c]"
+  }
+]

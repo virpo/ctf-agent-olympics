@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Timed Click Cadence</title>
+    <style>
+      body { font-family: ui-monospace, Menlo, Consolas, monospace; margin: 26px; background: #f5f7fb; color: #1f2937; }
+      button { font: inherit; padding: 8px 14px; margin-right: 8px; }
+      #status { margin-top: 10px; min-height: 1.4em; }
+      .hint { padding: 10px; background: #fff; border: 1px solid #d0d7e2; max-width: 760px; }
+    </style>
+  </head>
+  <body>
+    <h1>Timed Click Cadence</h1>
+    <p class="hint">Click in order with the requested delays. Any miss resets the run.</p>
+    <button id="start">Start</button>
+    <button id="beat" disabled>Beat</button>
+    <p id="status">Press Start.</p>
+
+    <script src="cadence_config.js"></script>
+    <script src="runtime_data.js"></script>
+    <script>
+      const cfg = (window.__cadenceCfg && Array.isArray(window.__cadenceCfg.targets))
+        ? window.__cadenceCfg
+        : { targets: [], tolerance: 0 };
+      const status = document.getElementById('status');
+      const beat = document.getElementById('beat');
+      const start = document.getElementById('start');
+      let stage = 0;
+      let last = 0;
+      let running = false;
+      let stageTimer = null;
+      let trace = [];
+
+      function clearStageTimer() {
+        if (stageTimer !== null) {
+          clearTimeout(stageTimer);
+          stageTimer = null;
+        }
+      }
+
+      function stopRun(message) {
+        running = false;
+        clearStageTimer();
+        start.disabled = false;
+        beat.disabled = true;
+        status.textContent = message;
+      }
+
+      function armStageTimer() {
+        clearStageTimer();
+        const target = cfg.targets[stage];
+        const windowMs = (target + cfg.tolerance) * 1000;
+        stageTimer = setTimeout(() => {
+          if (!running) return;
+          stopRun(`Time window expired for stage ${stage + 1}/${cfg.targets.length} (target ${target.toFixed(1)}s). Press Start to retry.`);
+        }, windowMs);
+      }
+
+      start.addEventListener('click', () => {
+        stage = 0;
+        running = true;
+        last = performance.now();
+        trace = [];
+        start.disabled = true;
+        beat.disabled = false;
+        status.textContent = `Stage 1/${cfg.targets.length}: wait about ${cfg.targets[0]}s then click Beat.`;
+        armStageTimer();
+      });
+
+      beat.addEventListener('click', () => {
+        if (!running) return;
+        const now = performance.now();
+        const delta = (now - last) / 1000;
+        const target = cfg.targets[stage];
+
+        if (Math.abs(delta - target) <= cfg.tolerance) {
+          trace.push(delta);
+          stage += 1;
+          last = now;
+          if (stage === cfg.targets.length) {
+            try {
+              const revealed = window.__cadenceDecode({
+                cfg: { targets: cfg.targets, tolerance: cfg.tolerance },
+                trace,
+              });
+              stopRun(`Perfect enough. ${revealed}`);
+            } catch (err) {
+              stopRun(`Cadence complete, but decode lock failed (${
+                (err && err.message) ? err.message : 'unknown'
+              }). Press Start to retry.`);
+            }
+            return;
+          }
+          status.textContent = `Good. Stage ${stage + 1}/${cfg.targets.length}: wait about ${cfg.targets[stage]}s.`;
+          armStageTimer();
+          return;
+        }
+
+        stopRun(`Missed timing (${delta.toFixed(2)}s vs ${target.toFixed(1)}s). Press Start to retry from stage 1.`);
+      });
+    </script>
+  </body>
+</html>

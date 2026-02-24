@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Memory Wall XL</title>
+    <style>
+      body { font-family: ui-monospace, Menlo, Consolas, monospace; margin: 24px; background: #f7fbff; color: #111827; }
+      .card { background: #fff; border: 1px solid #d8e6f6; border-radius: 10px; padding: 14px; max-width: 1120px; }
+      .grid { display: grid; grid-template-columns: repeat(21, 42px); gap: 6px; margin-top: 12px; }
+      .tile { height: 34px; border: 1px solid #cfdceb; border-radius: 6px; background: #f0f6ff; font: inherit; font-size: 12px; cursor: pointer; }
+      .tile.open { background: #fff; }
+      .tile.done { background: #dbeafe; color: #1e3a8a; }
+      #status { margin-top: 10px; min-height: 1.2em; }
+      table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+      th, td { border-bottom: 1px solid #e8eff8; padding: 6px 8px; font-size: 12px; text-align: left; }
+      code { background: #eaf1ff; border-radius: 4px; padding: 2px 6px; }
+      .hint { opacity: .84; }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Memory Wall XL</h1>
+      <p>Classic memory game, just... very not small.</p>
+      <p>Match all pairs. The wall reveals an encoded completion token only when fully cleared.</p>
+      <p class="hint">The practical route is automation. The visible game is intentionally huge.</p>
+      <div id="status"></div>
+      <div id="grid" class="grid"></div>
+      <p class="hint">Preview table below shows just a tiny sample of cards.</p>
+      <table>
+        <thead><tr><th>card_id</th><th>face token</th><th>pair id</th></tr></thead>
+        <tbody><tr><td>1</td><td>CG</td><td>0</td></tr><tr><td>113</td><td>AG</td><td>56</td></tr><tr><td>131</td><td>MA</td><td>65</td></tr><tr><td>262</td><td>CC</td><td>130</td></tr><tr><td>249</td><td>PC</td><td>124</td></tr><tr><td>325</td><td>PS</td><td>162</td></tr><tr><td>156</td><td>RB</td><td>77</td></tr><tr><td>308</td><td>XW</td><td>153</td></tr><tr><td>126</td><td>HJ</td><td>62</td></tr><tr><td>300</td><td>VF</td><td>149</td></tr><tr><td>124</td><td>AZ</td><td>61</td></tr><tr><td>293</td><td>PD</td><td>146</td></tr><tr><td>142</td><td>SL</td><td>70</td></tr><tr><td>118</td><td>EL</td><td>58</td></tr><tr><td>284</td><td>ME</td><td>141</td></tr><tr><td>224</td><td>JF</td><td>111</td></tr><tr><td>135</td><td>HP</td><td>67</td></tr><tr><td>203</td><td>NE</td><td>101</td></tr><tr><td>365</td><td>JG</td><td>182</td></tr><tr><td>252</td><td>MX</td><td>125</td></tr><tr><td>289</td><td>RD</td><td>144</td></tr><tr><td>14</td><td>LJ</td><td>6</td></tr><tr><td>254</td><td>WT</td><td>126</td></tr><tr><td>3</td><td>QC</td><td>1</td></tr><tr><td>418</td><td>BV</td><td>208</td></tr><tr><td>174</td><td>DG</td><td>86</td></tr><tr><td>202</td><td>DR</td><td>100</td></tr><tr><td>23</td><td>NK</td><td>11</td></tr><tr><td>79</td><td>DT</td><td>39</td></tr><tr><td>405</td><td>LM</td><td>202</td></tr><tr><td>214</td><td>WV</td><td>106</td></tr><tr><td>242</td><td>TY</td><td>120</td></tr><tr><td>150</td><td>ZW</td><td>74</td></tr><tr><td>237</td><td>WY</td><td>118</td></tr><tr><td>241</td><td>TY</td><td>120</td></tr><tr><td>95</td><td>DK</td><td>47</td></tr><tr><td>219</td><td>UT</td><td>109</td></tr><tr><td>171</td><td>BU</td><td>85</td></tr><tr><td>104</td><td>KW</td><td>51</td></tr><tr><td>275</td><td>PV</td><td>137</td></tr><tr><td>100</td><td>PZ</td><td>49</td></tr><tr><td>162</td><td>HZ</td><td>80</td></tr><tr><td>36</td><td>KX</td><td>17</td></tr><tr><td>80</td><td>DT</td><td>39</td></tr><tr><td>417</td><td>BV</td><td>208</td></tr><tr><td>370</td><td>SU</td><td>184</td></tr><tr><td>298</td><td>HQ</td><td>148</td></tr><tr><td>366</td><td>JG</td><td>182</td></tr><tr><td>151</td><td>GJ</td><td>75</td></tr><tr><td>270</td><td>HD</td><td>134</td></tr><tr><td>376</td><td>LE</td><td>187</td></tr><tr><td>65</td><td>YQ</td><td>32</td></tr><tr><td>281</td><td>YL</td><td>140</td></tr><tr><td>400</td><td>LN</td><td>199</td></tr><tr><td>384</td><td>ZU</td><td>191</td></tr><tr><td>353</td><td>BD</td><td>176</td></tr><tr><td>333</td><td>QR</td><td>166</td></tr><tr><td>5</td><td>TH</td><td>2</td></tr><tr><td>395</td><td>PX</td><td>197</td></tr><tr><td>225</td><td>PH</td><td>112</td></tr><tr><td>107</td><td>UP</td><td>53</td></tr><tr><td>52</td><td>UR</td><td>25</td></tr><tr><td>305</td><td>MU</td><td>152</td></tr><tr><td>247</td><td>EJ</td><td>123</td></tr><tr><td>268</td><td>VM</td><td>133</td></tr><tr><td>230</td><td>VX</td><td>114</td></tr><tr><td>7</td><td>DP</td><td>3</td></tr><tr><td>416</td><td>GC</td><td>207</td></tr><tr><td>274</td><td>HU</td><td>136</td></tr><tr><td>66</td><td>YQ</td><td>32</td></tr><tr><td>246</td><td>ZS</td><td>122</td></tr><tr><td>238</td><td>WY</td><td>118</td></tr><tr><td>227</td><td>QA</td><td>113</td></tr><tr><td>61</td><td>ZH</td><td>30</td></tr><tr><td>129</td><td>FJ</td><td>64</td></tr><tr><td>393</td><td>VJ</td><td>196</td></tr><tr><td>10</td><td>XS</td><td>4</td></tr><tr><td>343</td><td>DF</td><td>171</td></tr><tr><td>21</td><td>JN</td><td>10</td></tr><tr><td>15</td><td>DE</td><td>7</td></tr><tr><td>143</td><td>CU</td><td>71</td></tr><tr><td>363</td><td>MP</td><td>181</td></tr><tr><td>182</td><td>VR</td><td>90</td></tr><tr><td>294</td><td>PD</td><td>146</td></tr><tr><td>42</td><td>WB</td><td>20</td></tr><tr><td>189</td><td>YT</td><td>94</td></tr><tr><td>114</td><td>AG</td><td>56</td></tr><tr><td>93</td><td>VL</td><td>46</td></tr><tr><td>304</td><td>TF</td><td>151</td></tr><tr><td>354</td><td>BD</td><td>176</td></tr></tbody>
+      </table>
+    </div>
+
+    <script src="./cards_data.js"></script>
+    <script>
+      const cfg = (window.__cardsCfg && Array.isArray(window.__cardsCfg.cards)) ? window.__cardsCfg : { cards: [], pairs: [] };
+      const grid = document.getElementById('grid');
+      const status = document.getElementById('status');
+      const state = new Map();
+      const open = [];
+      let matched = 0;
+
+      function decodeFinal() {
+        const out = cfg.pairs
+          .filter((p) => Number.isInteger(p.emit_rank))
+          .sort((a, b) => a.emit_rank - b.emit_rank)
+          .map((p) => String.fromCharCode(p.emit_enc ^ ((p.pair_id * 37 + p.emit_rank * 19 + 11) & 127)))
+          .join('');
+        return out;
+      }
+
+      function redrawCard(btn, s) {
+        btn.classList.toggle('open', s.open);
+        btn.classList.toggle('done', s.done);
+        btn.textContent = (s.open || s.done) ? s.token : '?';
+        btn.disabled = s.done;
+      }
+
+      function setStatus(text) { status.textContent = text; }
+
+      cfg.cards.forEach((c) => {
+        state.set(c.card_id, { ...c, open: false, done: false });
+        const btn = document.createElement('button');
+        btn.className = 'tile';
+        btn.dataset.cardId = String(c.card_id);
+        btn.textContent = '?';
+        btn.addEventListener('click', () => {
+          const cur = state.get(c.card_id);
+          if (!cur || cur.done || cur.open) return;
+          cur.open = true;
+          redrawCard(btn, cur);
+          open.push(c.card_id);
+
+          if (open.length === 2) {
+            const a = state.get(open[0]);
+            const b = state.get(open[1]);
+            if (a && b && a.pair_id === b.pair_id) {
+              a.done = true;
+              b.done = true;
+              matched += 1;
+              redrawCard(grid.querySelector(`[data-card-id="${a.card_id}"]`), a);
+              redrawCard(grid.querySelector(`[data-card-id="${b.card_id}"]`), b);
+              setStatus(`matched ${matched}/${cfg.pairs.length}`);
+              open.length = 0;
+              if (matched === cfg.pairs.length) {
+                setStatus(`completed: ${decodeFinal()}`);
+              }
+            } else {
+              const ids = [...open];
+              open.length = 0;
+              setTimeout(() => {
+                ids.forEach((id) => {
+                  const x = state.get(id);
+                  const node = grid.querySelector(`[data-card-id="${id}"]`);
+                  if (!x || !node || x.done) return;
+                  x.open = false;
+                  redrawCard(node, x);
+                });
+              }, 220);
+            }
+          }
+        });
+        grid.appendChild(btn);
+      });
+
+      setStatus(`matched 0/${cfg.pairs.length}`);
+    </script>
+  </body>
+</html>

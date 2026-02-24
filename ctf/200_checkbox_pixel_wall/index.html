@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Checkbox Pixel Wall</title>
+    <style>
+      :root {
+        --bg: #f5f2ea;
+        --ink: #1f2937;
+        --panel: #fffdf8;
+        --pixel-size: 18px;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        color: var(--ink);
+        background: radial-gradient(circle at 20% 0%, #fff7dc 0%, var(--bg) 55%);
+      }
+
+      main {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 32px 20px 48px;
+      }
+
+      h1 { margin-top: 0; }
+
+      .demo {
+        margin: 18px 0 24px;
+        padding: 14px;
+        border: 1px solid #d3c8b2;
+        background: var(--panel);
+      }
+
+      .row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 8px 0;
+      }
+
+      .shell {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-top: 8px;
+        overflow-x: auto;
+        padding: 10px;
+        border: 1px dashed #d3c8b2;
+        background: #fff;
+      }
+
+      .brace {
+        font-size: 34px;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+
+      #wall {
+        display: grid;
+        gap: 2px;
+      }
+
+      .pixel {
+        width: var(--pixel-size);
+        height: var(--pixel-size);
+        margin: 0;
+        cursor: pointer;
+        accent-color: #111827;
+      }
+
+      .pixel.rejected {
+        outline: 2px solid #e07a5f;
+      }
+
+      #status {
+        margin-top: 12px;
+        min-height: 1.4em;
+        color: #374151;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Checkbox Pixel Wall</h1>
+      <p>
+        Some checkboxes are real toggles. Some are permanently dead.
+        Turn on every box that can stay on and read the code between braces.
+      </p>
+
+      <section class="demo" aria-label="behavior demo">
+        <div class="row">
+          <span>Real toggle:</span>
+          <input id="demo-real" class="pixel" type="checkbox" checked />
+        </div>
+        <div class="row">
+          <span>Locked toggle:</span>
+          <input id="demo-locked" class="pixel" type="checkbox" />
+        </div>
+      </section>
+
+      <div class="shell">
+        <span class="brace">flag{</span>
+        <div id="wall" aria-label="checkbox wall"></div>
+        <span class="brace">}</span>
+      </div>
+
+      <p id="status"></p>
+    </main>
+
+    <script src="./wall_config.js"></script>
+    <script>
+      const cfg = (window.__wallCfg && Array.isArray(window.__wallCfg.allow_hashes))
+        ? window.__wallCfg
+        : { rows: 0, cols: 0, salt: "", allow_hashes: [] };
+      const wall = document.getElementById("wall");
+      const status = document.getElementById("status");
+      const allowedHashes = new Set(cfg.allow_hashes.map(Number));
+      const pixels = [];
+
+      function fnv1a32(text) {
+        let h = 0x811c9dc5;
+        for (let i = 0; i < text.length; i++) {
+          h ^= text.charCodeAt(i);
+          h = Math.imul(h, 0x01000193) >>> 0;
+        }
+        return h >>> 0;
+      }
+
+      function isStablePixel(idx) {
+        return allowedHashes.has(fnv1a32(`${idx}:${cfg.salt}`));
+      }
+
+      const stable = new Set();
+      for (let idx = 0; idx < cfg.rows * cfg.cols; idx++) {
+        if (isStablePixel(idx)) {
+          stable.add(idx);
+        }
+      }
+
+      function flashReject(el) {
+        el.classList.add("rejected");
+        setTimeout(() => el.classList.remove("rejected"), 140);
+      }
+
+      function updateStatus() {
+        let on = 0;
+        for (const idx of stable) {
+          if (pixels[idx].checked) {
+            on += 1;
+          }
+        }
+        let text = `Stable pixels on: ${on} / ${stable.size}`;
+        if (on === stable.size) {
+          text += "  Nice. Read the letters in the wall.";
+        }
+        status.textContent = text;
+      }
+
+      wall.style.gridTemplateColumns = `repeat(${cfg.cols}, var(--pixel-size))`;
+      for (let idx = 0; idx < cfg.rows * cfg.cols; idx++) {
+        const input = document.createElement("input");
+        input.type = "checkbox";
+        input.className = "pixel";
+        input.dataset.idx = String(idx);
+        input.addEventListener("change", () => {
+          if (!stable.has(idx)) {
+            input.checked = false;
+            flashReject(input);
+          }
+          updateStatus();
+        });
+        wall.appendChild(input);
+        pixels.push(input);
+      }
+
+      const demoLocked = document.getElementById("demo-locked");
+      demoLocked.addEventListener("change", () => {
+        demoLocked.checked = false;
+      });
+
+      updateStatus();
+    </script>
+  </body>
+</html>

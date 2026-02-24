@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Editor Replay Log</title>
+    <style>
+      body { font-family: ui-monospace, Menlo, Consolas, monospace; margin: 24px; background: #f8fafc; color: #111827; }
+      .card { background: #fff; border: 1px solid #d6e2f0; border-radius: 10px; padding: 14px; max-width: 1100px; }
+      .controls button { font: inherit; margin-right: 8px; padding: 8px 12px; }
+      .screen { margin-top: 10px; padding: 10px; border: 1px solid #d7dee9; border-radius: 8px; background: #f4f7fb; min-height: 80px; white-space: pre-wrap; }
+      table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+      th, td { border-bottom: 1px solid #e8eef6; padding: 6px 8px; font-size: 12px; text-align: left; }
+      code { background: #ecf2ff; border-radius: 4px; padding: 2px 6px; }
+      .hint { opacity: .84; }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Editor Replay Log</h1>
+      <p>A broken editor plugin exported every keystroke and cursor move. Replaying it all by hand is possible, just miserable.</p>
+      <p>Use full <code>ops.json</code>. Reconstruct the final sentence, solve the tiny riddle, and format as <code>FLAG{answer}</code>.</p>
+      <div class="controls">
+        <button id="reset">Reset</button>
+        <button id="step">Step +1</button>
+        <button id="burst">Run +100</button>
+        <span id="meta"></span>
+      </div>
+      <div id="screen" class="screen"></div>
+      <p class="hint">Preview below shows only the beginning of the operation log.</p>
+      <table>
+        <thead><tr><th>#</th><th>op</th><th>ch</th><th>n</th></tr></thead>
+        <tbody><tr><td>1</td><td>type</td><td>v</td><td></td></tr><tr><td>2</td><td>backspace</td><td></td><td></td></tr><tr><td>3</td><td>type</td><td>m</td><td></td></tr><tr><td>4</td><td>backspace</td><td></td><td></td></tr><tr><td>5</td><td>type</td><td>8</td><td></td></tr><tr><td>6</td><td>backspace</td><td></td><td></td></tr><tr><td>7</td><td>type</td><td>{</td><td></td></tr><tr><td>8</td><td>backspace</td><td></td><td></td></tr><tr><td>9</td><td>type</td><td>{</td><td></td></tr><tr><td>10</td><td>backspace</td><td></td><td></td></tr><tr><td>11</td><td>type</td><td>/</td><td></td></tr><tr><td>12</td><td>left</td><td></td><td>1</td></tr><tr><td>13</td><td>right</td><td></td><td>1</td></tr><tr><td>14</td><td>backspace</td><td></td><td></td></tr><tr><td>15</td><td>type</td><td>.</td><td></td></tr><tr><td>16</td><td>backspace</td><td></td><td></td></tr><tr><td>17</td><td>type</td><td>/</td><td></td></tr><tr><td>18</td><td>left</td><td></td><td>1</td></tr><tr><td>19</td><td>right</td><td></td><td>1</td></tr><tr><td>20</td><td>backspace</td><td></td><td></td></tr><tr><td>21</td><td>type</td><td>h</td><td></td></tr><tr><td>22</td><td>left</td><td></td><td>1</td></tr><tr><td>23</td><td>right</td><td></td><td>1</td></tr><tr><td>24</td><td>backspace</td><td></td><td></td></tr><tr><td>25</td><td>type</td><td>_</td><td></td></tr><tr><td>26</td><td>backspace</td><td></td><td></td></tr><tr><td>27</td><td>type</td><td>z</td><td></td></tr><tr><td>28</td><td>backspace</td><td></td><td></td></tr><tr><td>29</td><td>type</td><td>]</td><td></td></tr><tr><td>30</td><td>backspace</td><td></td><td></td></tr><tr><td>31</td><td>type</td><td>[</td><td></td></tr><tr><td>32</td><td>left</td><td></td><td>1</td></tr><tr><td>33</td><td>right</td><td></td><td>1</td></tr><tr><td>34</td><td>backspace</td><td></td><td></td></tr><tr><td>35</td><td>type</td><td>=</td><td></td></tr><tr><td>36</td><td>backspace</td><td></td><td></td></tr><tr><td>37</td><td>type</td><td>b</td><td></td></tr><tr><td>38</td><td>backspace</td><td></td><td></td></tr><tr><td>39</td><td>type</td><td>!</td><td></td></tr><tr><td>40</td><td>backspace</td><td></td><td></td></tr><tr><td>41</td><td>type</td><td>q</td><td></td></tr><tr><td>42</td><td>left</td><td></td><td>1</td></tr><tr><td>43</td><td>right</td><td></td><td>1</td></tr><tr><td>44</td><td>backspace</td><td></td><td></td></tr><tr><td>45</td><td>type</td><td>:</td><td></td></tr><tr><td>46</td><td>left</td><td></td><td>1</td></tr><tr><td>47</td><td>right</td><td></td><td>1</td></tr><tr><td>48</td><td>backspace</td><td></td><td></td></tr><tr><td>49</td><td>type</td><td>t</td><td></td></tr><tr><td>50</td><td>type</td><td>x</td><td></td></tr><tr><td>51</td><td>backspace</td><td></td><td></td></tr><tr><td>52</td><td>type</td><td>d</td><td></td></tr><tr><td>53</td><td>backspace</td><td></td><td></td></tr><tr><td>54</td><td>type</td><td>-</td><td></td></tr><tr><td>55</td><td>backspace</td><td></td><td></td></tr><tr><td>56</td><td>type</td><td>}</td><td></td></tr><tr><td>57</td><td>backspace</td><td></td><td></td></tr><tr><td>58</td><td>type</td><td>=</td><td></td></tr><tr><td>59</td><td>backspace</td><td></td><td></td></tr><tr><td>60</td><td>type</td><td>!</td><td></td></tr><tr><td>61</td><td>backspace</td><td></td><td></td></tr><tr><td>62</td><td>type</td><td>j</td><td></td></tr><tr><td>63</td><td>backspace</td><td></td><td></td></tr><tr><td>64</td><td>type</td><td>?</td><td></td></tr><tr><td>65</td><td>backspace</td><td></td><td></td></tr><tr><td>66</td><td>type</td><td>5</td><td></td></tr><tr><td>67</td><td>backspace</td><td></td><td></td></tr><tr><td>68</td><td>type</td><td>a</td><td></td></tr><tr><td>69</td><td>backspace</td><td></td><td></td></tr><tr><td>70</td><td>type</td><td>!</td><td></td></tr><tr><td>71</td><td>left</td><td></td><td>1</td></tr><tr><td>72</td><td>right</td><td></td><td>1</td></tr><tr><td>73</td><td>backspace</td><td></td><td></td></tr><tr><td>74</td><td>type</td><td>.</td><td></td></tr><tr><td>75</td><td>backspace</td><td></td><td></td></tr><tr><td>76</td><td>type</td><td>_</td><td></td></tr><tr><td>77</td><td>left</td><td></td><td>1</td></tr><tr><td>78</td><td>right</td><td></td><td>1</td></tr><tr><td>79</td><td>backspace</td><td></td><td></td></tr><tr><td>80</td><td>type</td><td>i</td><td></td></tr><tr><td>81</td><td>backspace</td><td></td><td></td></tr><tr><td>82</td><td>type</td><td>9</td><td></td></tr><tr><td>83</td><td>backspace</td><td></td><td></td></tr><tr><td>84</td><td>type</td><td>2</td><td></td></tr><tr><td>85</td><td>backspace</td><td></td><td></td></tr><tr><td>86</td><td>type</td><td>k</td><td></td></tr><tr><td>87</td><td>left</td><td></td><td>1</td></tr><tr><td>88</td><td>right</td><td></td><td>1</td></tr><tr><td>89</td><td>backspace</td><td></td><td></td></tr><tr><td>90</td><td>type</td><td>j</td><td></td></tr><tr><td>91</td><td>backspace</td><td></td><td></td></tr><tr><td>92</td><td>type</td><td>i</td><td></td></tr><tr><td>93</td><td>type</td><td>j</td><td></td></tr><tr><td>94</td><td>backspace</td><td></td><td></td></tr><tr><td>95</td><td>type</td><td>0</td><td></td></tr><tr><td>96</td><td>backspace</td><td></td><td></td></tr><tr><td>97</td><td>type</td><td>/</td><td></td></tr><tr><td>98</td><td>backspace</td><td></td><td></td></tr><tr><td>99</td><td>type</td><td>q</td><td></td></tr><tr><td>100</td><td>backspace</td><td></td><td></td></tr><tr><td>101</td><td>type</td><td>j</td><td></td></tr><tr><td>102</td><td>backspace</td><td></td><td></td></tr><tr><td>103</td><td>type</td><td>j</td><td></td></tr><tr><td>104</td><td>backspace</td><td></td><td></td></tr><tr><td>105</td><td>type</td><td>;</td><td></td></tr><tr><td>106</td><td>backspace</td><td></td><td></td></tr><tr><td>107</td><td>type</td><td>.</td><td></td></tr><tr><td>108</td><td>backspace</td><td></td><td></td></tr><tr><td>109</td><td>type</td><td>a</td><td></td></tr><tr><td>110</td><td>backspace</td><td></td><td></td></tr><tr><td>111</td><td>type</td><td>j</td><td></td></tr><tr><td>112</td><td>left</td><td></td><td>1</td></tr><tr><td>113</td><td>right</td><td></td><td>1</td></tr><tr><td>114</td><td>backspace</td><td></td><td></td></tr><tr><td>115</td><td>type</td><td>.</td><td></td></tr><tr><td>116</td><td>left</td><td></td><td>1</td></tr><tr><td>117</td><td>right</td><td></td><td>1</td></tr><tr><td>118</td><td>backspace</td><td></td><td></td></tr><tr><td>119</td><td>type</td><td>+</td><td></td></tr><tr><td>120</td><td>backspace</td><td></td><td></td></tr><tr><td>121</td><td>type</td><td>]</td><td></td></tr><tr><td>122</td><td>backspace</td><td></td><td></td></tr><tr><td>123</td><td>type</td><td>4</td><td></td></tr><tr><td>124</td><td>left</td><td></td><td>1</td></tr><tr><td>125</td><td>right</td><td></td><td>1</td></tr><tr><td>126</td><td>backspace</td><td></td><td></td></tr><tr><td>127</td><td>type</td><td>c</td><td></td></tr><tr><td>128</td><td>backspace</td><td></td><td></td></tr><tr><td>129</td><td>type</td><td>7</td><td></td></tr><tr><td>130</td><td>backspace</td><td></td><td></td></tr><tr><td>131</td><td>type</td><td>q</td><td></td></tr><tr><td>132</td><td>backspace</td><td></td><td></td></tr><tr><td>133</td><td>type</td><td>j</td><td></td></tr><tr><td>134</td><td>left</td><td></td><td>1</td></tr><tr><td>135</td><td>right</td><td></td><td>1</td></tr><tr><td>136</td><td>backspace</td><td></td><td></td></tr><tr><td>137</td><td>type</td><td>n</td><td></td></tr><tr><td>138</td><td>type</td><td>_</td><td></td></tr><tr><td>139</td><td>backspace</td><td></td><td></td></tr><tr><td>140</td><td>type</td><td>.</td><td></td></tr></tbody>
+      </table>
+    </div>
+
+    <script src="./ops_data.js"></script>
+    <script>
+      const cfg = (window.__opsCfg && Array.isArray(window.__opsCfg.ops)) ? window.__opsCfg : { ops: [] };
+      const screen = document.getElementById('screen');
+      const meta = document.getElementById('meta');
+      let pos = 0;
+      let cursor = 0;
+      let buf = [];
+
+      function apply(op) {
+        if (!op) return;
+        if (op.op === 'type') {
+          const ch = String(op.ch || '');
+          buf.splice(cursor, 0, ch);
+          cursor += ch.length;
+        } else if (op.op === 'backspace') {
+          if (cursor > 0) {
+            buf.splice(cursor - 1, 1);
+            cursor -= 1;
+          }
+        } else if (op.op === 'left') {
+          cursor = Math.max(0, cursor - Number(op.n || 1));
+        } else if (op.op === 'right') {
+          cursor = Math.min(buf.length, cursor + Number(op.n || 1));
+        }
+      }
+
+      function render() {
+        const text = buf.join('');
+        const caret = text.slice(0, cursor) + '|' + text.slice(cursor);
+        screen.textContent = caret;
+        meta.textContent = `step ${pos}/${cfg.ops.length}`;
+      }
+
+      function stepOne() {
+        if (pos >= cfg.ops.length) return;
+        apply(cfg.ops[pos]);
+        pos += 1;
+        render();
+      }
+
+      function resetAll() {
+        pos = 0;
+        cursor = 0;
+        buf = [];
+        render();
+      }
+
+      document.getElementById('reset').addEventListener('click', resetAll);
+      document.getElementById('step').addEventListener('click', stepOne);
+      document.getElementById('burst').addEventListener('click', () => {
+        for (let i = 0; i < 100; i += 1) stepOne();
+      });
+
+      resetAll();
+    </script>
+  </body>
+</html>
